@@ -6,7 +6,6 @@ import example.RotatingAudioBands;
 
 public class Main
 {	
-
 	public void startUI()
 	{
 		String[] a = {"MAIN"};
