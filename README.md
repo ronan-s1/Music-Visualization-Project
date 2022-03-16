@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Name: Ronan Singpurwala
 
-Student Number: 
+Student Number: C20391216
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
