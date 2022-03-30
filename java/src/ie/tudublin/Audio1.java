@@ -126,7 +126,6 @@ public class Audio1 extends PApplet
                         px = x;
                         py = y;
                     }
-                    break;
             }
         case 3:
             background(0);
@@ -136,7 +135,6 @@ public class Audio1 extends PApplet
             float c = map(smoothedAmplitude, 0, 0.5f, 0, 255);
             stroke(c, 255, 255);
             circle(cx, cy, r);
-            break;
         case 4:
         
             background(0);
@@ -174,4 +172,3 @@ public class Audio1 extends PApplet
 
     }        
 }
-
