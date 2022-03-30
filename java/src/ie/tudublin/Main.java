@@ -27,14 +27,8 @@ public class Main
 
 	public static void main(String[] args)
 	{
-<<<<<<< HEAD
-		// Main main = new Main();
-		// main.startUI();	
-		audio1();		
-=======
 		/* Main main = new Main();
 		main.startUI();	 */		
 		//Visual();
->>>>>>> 71528a425837ecd71af89eb49fe826965b7661cd
 	}
 }
