@@ -59,7 +59,7 @@ public class CubeVisual extends Visual
         if (twocubes)
         {
             pushMatrix();
-            translate(-100, 0, 0);
+            translate(-200, 0, 0);
             rotateY(angle);
             rotateX(angle);
             box(smoothedBoxSize);
@@ -67,24 +67,24 @@ public class CubeVisual extends Visual
             //sphere(smoothedBoxSize);
             popMatrix();
             pushMatrix();
-            translate(100, 0, 0);
+            translate(200, 0, 0);
             rotateY(angle);
             rotateX(angle);
-            strokeWeight(5); 
+            strokeWeight(2); 
             box(smoothedBoxSize);
             popMatrix();
         }
         else
         {
-            rotateY(angle);
-            rotateX(angle);
+            rotateY(angle * 5);
+            rotateX(angle * 10);
             //strokeWeight(1);
             //sphere(smoothedBoxSize/ 2);            
             strokeWeight(5);
             
             box(smoothedBoxSize);
         }
-        angle += 0.01f;
+        angle += 10f;
     }
     float angle = 0;
 } 

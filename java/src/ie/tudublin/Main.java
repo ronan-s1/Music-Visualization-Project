@@ -7,11 +7,11 @@ import example.RotatingAudioBands; */
 public class Main
 {	
 
-	/* public void startUI()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MyVisual());		
-	} */
+	// public void Visual()
+	// {
+	// 	String[] a = {"MAIN"};
+    //     processing.core.PApplet.runSketch( a, new Visual());		
+	// }
 
 	public static void Audio1()
 	{
@@ -23,6 +23,6 @@ public class Main
 	{
 		/* Main main = new Main();
 		main.startUI();	 */		
-		Audio1();
+		//Visual();
 	}
 }
