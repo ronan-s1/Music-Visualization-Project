@@ -4,6 +4,7 @@ import processing.core.PApplet;
 import ddf.minim.*;
 import ddf.minim.analysis.FFT;
 
+
 public abstract class Visual extends PApplet
 {
 	private int frameSize = 512;
@@ -12,10 +13,10 @@ public abstract class Visual extends PApplet
 	private float[] bands;
 	private float[] smoothedBands;
 
-	private Minim minim;
-	private AudioInput ai;
+	protected Minim minim;
+	protected AudioInput ai;
 	private AudioPlayer ap;
-	private AudioBuffer ab;
+	protected AudioBuffer ab;
 	private FFT fft;
 
 	private float amplitude  = 0;

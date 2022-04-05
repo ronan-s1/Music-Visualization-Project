@@ -3,6 +3,8 @@ package C20391216;
 import ie.tudublin.Visual;
 
 public class Heathens extends Visual {
+    float theta = (float)0.0;
+
 
     public void settings()
     {
@@ -51,14 +53,16 @@ public class Heathens extends Visual {
 
             case '3':
             {
-                getAudioPlayer().cue(112000);
+                getAudioPlayer().cue(118000);
                 getAudioPlayer().play();
+                break;
             }
 
             case '4':
             {
                 getAudioPlayer().cue(162000);
                 getAudioPlayer().play();
+                break;
             }
             
         }
@@ -67,7 +71,7 @@ public class Heathens extends Visual {
     public void setup()
     {
         colorMode(HSB);
-        noCursor();
+        // noCursor();
         
         setFrameSize(256);
 
@@ -76,30 +80,82 @@ public class Heathens extends Visual {
         
     }
 
+  
+    void drawPyramid(float t, float colour)
+    {
+        stroke(0);
+      
+        // this pyramid has 4 sides, each drawn as a separate triangle
+        // each side has 3 vertices, making up a triangle shape
+        // the parameter " t " determines the size of the pyramid
+        beginShape(TRIANGLES);
+      
+        fill(colour, 255, 255, 150);
+        vertex(-t, -t, -t);
+        vertex( t, -t, -t);
+        vertex( 0, 0, t);
+      
+        fill(colour, 255, 255, 150);
+        vertex( t, -t, -t);
+        vertex( t, t, -t);
+        vertex( 0, 0, t);
+      
+        fill(colour, 255, 255, 150);
+        vertex( t, t, -t);
+        vertex(-t, t, -t);
+        vertex( 0, 0, t);
+      
+        fill(colour, 255, 255, 150);
+        vertex(-t, t, -t);
+        vertex(-t, -t, -t);
+        vertex( 0, 0, t);
+    
+        endShape();
+    }
+
+    
+
     public void draw()
     {
-      switch(mode)
-      {
-          case 1: //Eoin SECTION 1
-          {
-              System.out.println("HELLO1");
-            break;
-          }
-          case 2: //Kieran SECTION 2
-          {
-            System.out.println("HELLO2");
-            break;
-          }
-          case 3: //Aman SECTION 3
-          {
-            System.out.println("HELLO3");
-            break;
-          }
-          case 4: //Ronan SECTION 4
-          {
-            System.out.println("HELLO4");
-            break;
-          }
-      }
+       
+        
+        background(0);
+        float total = 0;
+        float amplitude = 0;
+        float smoothedAmplitude = 0;
+        float size = 0;
+        float c = 0;
+        // int borderStroke = 5;
+
+        for(int i = 0 ; i < getAudioBuffer().size(); i ++)
+        {
+            total += abs(getAudioBuffer().get(i));
+        }
+        
+        amplitude = total / getAudioBuffer().size();
+        smoothedAmplitude = lerp(smoothedAmplitude, amplitude, 0.1f);
+
+        if (theta > 110)
+        {
+            theta += 0.01;
+        }
+
+        else
+        {
+            theta += smoothedAmplitude * 1.5;
+        }
+        
+        size = map(smoothedAmplitude, 0, 0.1f, 40, 100);
+
+        translate(width/2, height/2, 0);
+        rotateX(theta);
+        rotateY(theta);
+
+        // c = map(smoothedAmplitude, 0, 0.5f, 0, 255);
+        c = 50;
+        drawPyramid(size, c);
+
+
+     
     }
 }
