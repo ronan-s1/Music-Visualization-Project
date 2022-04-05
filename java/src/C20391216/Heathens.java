@@ -51,14 +51,16 @@ public class Heathens extends Visual {
 
             case '3':
             {
-                getAudioPlayer().cue(112000);
+                getAudioPlayer().cue(118000);
                 getAudioPlayer().play();
+                break;
             }
 
             case '4':
             {
                 getAudioPlayer().cue(162000);
                 getAudioPlayer().play();
+                break;
             }
             
         }
@@ -92,7 +94,41 @@ public class Heathens extends Visual {
           }
           case 3: //Aman SECTION 3
           {
-            System.out.println("HELLO3");
+            colorMode(RGB);
+            background(0);
+
+            //create an eye shape using this code
+            stroke(255);
+            strokeWeight(10);
+            fill(255,0,0);
+            beginShape();
+            for(float i = 0; i < TWO_PI; i += 0.01f)
+            {
+                float r = width/2.5f;
+                float x = r * cos(i);
+                float y = r * pow(sin(i), 3) * 0.5f;
+                vertex(x+width/2, y+height/2);
+            }
+            endShape();
+
+            float total = 0;
+            float amplitude = 0;
+            float smoothedAmplitude = 0;
+            for(int i = 0 ; i < getAudioBuffer().size() ; i ++)
+            {
+                total += abs(getAudioBuffer().get(i));
+            }
+            amplitude = total / getAudioBuffer().size();
+            smoothedAmplitude = lerp(smoothedAmplitude, amplitude, 0.1f);
+
+            //create visualizer	
+            for(int i = 0; i < getAudioBuffer().size(); i++)
+            {
+                float radius = map(smoothedAmplitude, 0, 0.5f, 100, 500);	
+                fill(0,255,0);	
+                circle(width/2, height/2, radius);
+            }
+
             break;
           }
           case 4: //Ronan SECTION 4
