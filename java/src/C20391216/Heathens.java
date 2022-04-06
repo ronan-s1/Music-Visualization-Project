@@ -5,6 +5,7 @@ import ie.tudublin.Visual;
 public class Heathens extends Visual {
 
     float[] lerpedBuffer;
+    float[] lerpedBuffer2;
     float y = 0;
     float smoothedY = 0;
     float smoothedAmplitude = 0;
@@ -86,7 +87,7 @@ public class Heathens extends Visual {
         smoothedY = y;
 
         lerpedBuffer = new float[width];
-        
+        lerpedBuffer2 = new float[height];
     }
 
     public void draw()
@@ -95,6 +96,7 @@ public class Heathens extends Visual {
         
         float halfH = height / 2;
         float average = 0;
+        float average2 = 0;
         float sum = 0;
 
         smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f);
@@ -108,6 +110,16 @@ public class Heathens extends Visual {
             lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.05f);
         }
         average= sum / (float) ab.size();
+
+        sum = 0;
+
+        for(int i = 0 ; i < ab.size() ; i ++)
+        {
+            sum += abs(ab.get(i));
+            lerpedBuffer2[i] = lerp(lerpedBuffer2[i], ab.get(i), 0.05f);
+        }
+
+        average2= sum / (float) ab.size();
 
       switch(mode)
       {
@@ -128,19 +140,21 @@ public class Heathens extends Visual {
                 
                 float c = map(i, 0, ab.size(), 0, 255);
                 stroke(c, 255, 255);
-                float f = lerpedBuffer[i] * halfH * 2.0f;
-                rect(i, halfH*1.9f + f, i, halfH - f);             
-            }
-
-            for(int i = 0 ; i < ab.size() ; i ++)
-            {
+                float f1 = lerpedBuffer[i] * halfH * 1.7f;
+                rect(i, halfH*2.0f + f1, i, halfH - f1);    
                 
-                float c = map(i, 0, ab.size(), 0, 255);
-                stroke(c, 255, 255);
-                float f = lerpedBuffer[i] * halfH * 2.0f;
-                rect(i, halfH*1.9f + f, i, halfH - f);             
+                float f2 = lerpedBuffer[i] * halfH * 1.7f;
+                rect(i,0 - f2, i, 0 + f2); 
+
+                float f3 = lerpedBuffer2[i] * halfH * 1.7f;
+                rect(0+f3,i, 0-f3, i); 
+
+                float f4 = lerpedBuffer2[i] * halfH * 1.7f;
+                rect(height-f4,i, width + f4, i); 
+
             }
 
+            
 
 
 
