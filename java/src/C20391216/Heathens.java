@@ -145,15 +145,24 @@ public class Heathens extends Visual {
             theta += smoothedAmplitude * 1.5;
         }
         
-        size = map(smoothedAmplitude, 0, 0.1f, 40, 100);
-
         translate(width/2, height/2, 0);
         rotateX(theta);
         rotateY(theta);
 
-        // c = map(smoothedAmplitude, 0, 0.5f, 0, 255);
-        c = 50;
-        drawPyramid(size, c);
+        size = map(smoothedAmplitude, 0, 0.1f, 40, 100);
+        c = map(smoothedAmplitude, 0, 0.1f, 0, 255);
+        // c = 50;
+        drawPyramid(size, 50);
+
+        // translate the scene again
+        translate(100, 100, 20);
+        // call the pyramid drawing function
+        drawPyramid(30, c);
+
+        // translate the scene again
+        translate(-200, -200);
+        // call the pyramid drawing function
+        drawPyramid(30, c);
 
 
      
