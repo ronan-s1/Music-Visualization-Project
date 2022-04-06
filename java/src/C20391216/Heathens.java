@@ -12,6 +12,7 @@ public class Heathens extends Visual {
     }
 
     int mode = 1;
+    boolean paused = false;
     public void keyPressed()
     {
         if (key >= '0' && key <= '4') {
@@ -21,8 +22,16 @@ public class Heathens extends Visual {
         {
             case ' ':
             {
-                getAudioPlayer().cue(0);
-                getAudioPlayer().play();
+                if(paused)
+                {
+                    getAudioPlayer().play();
+                    paused = false;
+                }
+                else
+                {
+                    getAudioPlayer().pause();
+                    paused = true;
+                }
                 break;
             }
 
@@ -51,6 +60,7 @@ public class Heathens extends Visual {
                 getAudioPlayer().cue(162000);
                 getAudioPlayer().play();
             }
+            
         }
     }
 

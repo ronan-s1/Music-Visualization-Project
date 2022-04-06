@@ -126,6 +126,7 @@ public class Audio1 extends PApplet
                         px = x;
                         py = y;
                     }
+                    break;
             }
         case 3:
             background(0);
