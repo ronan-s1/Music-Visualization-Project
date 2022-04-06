@@ -2,9 +2,12 @@ package C20391216;
 
 import ie.tudublin.Visual;
 
-public class Heathens extends Visual {
-    float theta = (float)0.0;
-
+public class Ronan extends Visual
+{
+    float theta = 0.0f;
+    int mode = 1;
+    float angle = 0;
+    boolean paused = false;
 
     public void settings()
     {
@@ -13,22 +16,23 @@ public class Heathens extends Visual {
         //fullScreen(P3D, SPAN);
     }
 
-    int mode = 1;
-    boolean paused = false;
     public void keyPressed()
     {
-        if (key >= '0' && key <= '4') {
+        if (key >= '0' && key <= '4')
+        {
 			mode = key - '0';
 		}
+
         switch(key)
         {
             case ' ':
             {
-                if(paused)
+                if (paused)
                 {
                     getAudioPlayer().play();
                     paused = false;
                 }
+
                 else
                 {
                     getAudioPlayer().pause();
@@ -64,9 +68,9 @@ public class Heathens extends Visual {
                 getAudioPlayer().play();
                 break;
             }
-            
         }
     }
+
 
     public void setup()
     {
@@ -77,14 +81,38 @@ public class Heathens extends Visual {
 
         startMinim();
         loadAudio("heathens.mp3");
-        
+
+        hint(ENABLE_DEPTH_SORT); // option that allows transparency
     }
 
+    void drawCube()
+    {
+        calculateAverageAmplitude();
+        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
+        strokeWeight(5);
+        noFill();
+        lights();
+        pushMatrix();
+        camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
+        translate(0, 0, -200);
+        rotateX(angle);
+        rotateZ(angle);       
+        float boxSize = 50 + (200 * getSmoothedAmplitude()); 
+        box(boxSize);   
+        popMatrix();
+        angle += 0.01f;
+    }
+
+    void drawCircle(float size)
+    {
+        noFill();
+        lights();
+        circle(0, 0, size + 30);
+        triangle(0, 0, 0, 0, 0, 0);
+    }
   
     void drawPyramid(float t, float colour)
-    {
-        stroke(0);
-      
+    { 
         // this pyramid has 4 sides, each drawn as a separate triangle
         // each side has 3 vertices, making up a triangle shape
         // the parameter " t " determines the size of the pyramid
@@ -107,7 +135,7 @@ public class Heathens extends Visual {
       
         fill(colour, 255, 255, 150);
         vertex(-t, t, -t);
-        vertex(-t, -t, -t);
+        vertex(-t, -t, -t); 
         vertex( 0, 0, t);
     
         endShape();
@@ -117,14 +145,13 @@ public class Heathens extends Visual {
 
     public void draw()
     {
-       
-        
         background(0);
         float total = 0;
         float amplitude = 0;
         float smoothedAmplitude = 0;
         float size = 0;
         float c = 0;
+        float smallC = 0;
         // int borderStroke = 5;
 
         for(int i = 0 ; i < getAudioBuffer().size(); i ++)
@@ -149,22 +176,28 @@ public class Heathens extends Visual {
         rotateX(theta);
         rotateY(theta);
 
-        size = map(smoothedAmplitude, 0, 0.1f, 40, 100);
-        c = map(smoothedAmplitude, 0, 0.1f, 0, 255);
-        // c = 50;
-        drawPyramid(size, 50);
+        size = map(smoothedAmplitude, 0, 0.1f, 10, 48);
+        c = map(smoothedAmplitude, 0, 0.09f, 0, 255);
+        smallC = map(c, 0, 255, 0, 127);
+        println(smallC, c);
+        drawPyramid(50, c);
 
-        // translate the scene again
-        translate(100, 100, 20);
-        // call the pyramid drawing function
-        drawPyramid(30, c);
+        translate(150, 150);
+        drawPyramid(size, smallC);
+        drawCircle(size);
 
-        // translate the scene again
-        translate(-200, -200);
-        // call the pyramid drawing function
-        drawPyramid(30, c);
+        translate(-300, -300);
+        drawPyramid(size, smallC);
+        drawCircle(size);
 
+        translate(300, 0);
+        drawPyramid(size, smallC);
+        drawCircle(size);
 
-     
+        translate(-300, 300);
+        drawPyramid(size, smallC);
+        drawCircle(size);
+
+        drawCube();
     }
 }
