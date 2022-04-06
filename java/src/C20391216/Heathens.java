@@ -155,17 +155,26 @@ public class Heathens extends Visual {
                 float radius2 = map(smoothedAmplitude, 0, 0.7f, width/20, 500);
                 fill(0);
                 circle(width/2, height/2, radius2);
-
-                //drop 1
-                float radius3 = map(smoothedAmplitude, 0, 3, width/60, 500);
-                circle(width/2, height/2.7f, radius3);
-
-                //drop 2
-                circle(width/1.8f, height/1.68f, radius3);
-
-                //drop 3
-                circle(width/2.25f, height/1.68f, radius3);
             }
+
+            //drawing the "tomoe"
+
+            pushMatrix();
+            translate(width/2, height/2);
+            rotate(degrees(getAudioPlayer().position()/125));
+            for(int i = 0; i < getAudioBuffer().size(); i++)
+            {
+                float radius3 = map(smoothedAmplitude, 0, 3, width/60, 500);
+                /*
+                circle(width/2, height/2.7f, radius3);
+                circle(width/1.79f, height/1.73f, radius3);
+                circle(width/2.28f, height/1.73f, radius3);
+                */
+                ellipse(0, height/-7.5f, radius3, radius3);
+                ellipse(width/16.5f, height/13.5f, radius3, radius3);
+                ellipse(width/-16.5f, height/13.5f, radius3, radius3);
+            }
+            popMatrix();
 
             break;
           }
