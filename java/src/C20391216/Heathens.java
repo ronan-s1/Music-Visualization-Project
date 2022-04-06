@@ -84,29 +84,30 @@ public class Heathens extends Visual {
       {
           case 1: //Eoin SECTION 1
           {
-              System.out.println("HELLO1");
+            
             break;
           }
           case 2: //Kieran SECTION 2
           {
-            System.out.println("HELLO2");
+    
             break;
           }
           case 3: //Aman SECTION 3
           {
             colorMode(RGB);
-            background(0);
+            background(GRAY);
 
             //create an eye shape using this code
-            stroke(255);
+            stroke(0);
             strokeWeight(10);
-            fill(255,0,0);
+            fill(255);
             beginShape();
             for(float i = 0; i < TWO_PI; i += 0.01f)
             {
                 float r = width/2.5f;
                 float x = r * cos(i);
                 float y = r * pow(sin(i), 3) * 0.5f;
+                //puts the eye in the center of the screen
                 vertex(x+width/2, y+height/2);
             }
             endShape();
@@ -120,20 +121,56 @@ public class Heathens extends Visual {
             }
             amplitude = total / getAudioBuffer().size();
             smoothedAmplitude = lerp(smoothedAmplitude, amplitude, 0.1f);
+            //make visualizer more intense
+            smoothedAmplitude = smoothedAmplitude * 5;
 
-            //create visualizer	
+            //drawing the ring inside the eye
+            noFill();
+            strokeWeight(10);
+            beginShape();
+            stroke(139, 0, 0);
+            strokeWeight(5);
+            for(float i = 0; i < TWO_PI; i += 0.01f)
+            {
+                //make the ring go crazy and randomly but still on beat
+                float r = width/14 + (getAudioBuffer().get((int) i) * random(50,70));
+                float x = r * cos(i);
+                float y = r * sin(i);
+                //center the ring
+                vertex(x+width/2, y+height/2);
+            }
+            endShape(CLOSE);
+
+            //create the iris
+            strokeWeight(10);
+            stroke(0);
             for(int i = 0; i < getAudioBuffer().size(); i++)
             {
-                float radius = map(smoothedAmplitude, 0, 0.5f, 100, 500);	
-                fill(0,255,0);	
+                //the iris
+                float radius = map(smoothedAmplitude, 0, 0.6f, width/4, 500);	
+                fill(255,0,0);	
                 circle(width/2, height/2, radius);
+
+                //draw the pupil for the eye
+                float radius2 = map(smoothedAmplitude, 0, 0.7f, width/20, 500);
+                fill(0);
+                circle(width/2, height/2, radius2);
+
+                //drop 1
+                float radius3 = map(smoothedAmplitude, 0, 3, width/60, 500);
+                circle(width/2, height/2.7f, radius3);
+
+                //drop 2
+                circle(width/1.8f, height/1.68f, radius3);
+
+                //drop 3
+                circle(width/2.25f, height/1.68f, radius3);
             }
 
             break;
           }
           case 4: //Ronan SECTION 4
           {
-            System.out.println("HELLO4");
             break;
           }
       }
