@@ -158,7 +158,7 @@ public class Heathens extends Visual {
 
             
 
-
+            Eoin.render(this);
 
             break;
           }
