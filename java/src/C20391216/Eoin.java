@@ -2,7 +2,7 @@ package C20391216;
 
 import ie.tudublin.Visual;
 
-public class Kieran
+public class Eoin
 {
     boolean twocubes = false;
     float smoothedBoxSize = 0;

@@ -4,6 +4,8 @@ import ie.tudublin.Visual;
 
 public class Heathens extends Visual {
 
+    Eoin Eoin = new Eoin();
+
     float[] lerpedBuffer;
     float[] lerpedBuffer2;
     float y = 0;
