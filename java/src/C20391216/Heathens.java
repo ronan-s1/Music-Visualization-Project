@@ -6,7 +6,7 @@ public class Heathens extends Visual {
 
     public void settings()
     {
-        size(512, 512, P3D);
+        size(1024, 1024, P3D);
         println("CWD: " + System.getProperty("user.dir"));
     }
 
@@ -71,7 +71,8 @@ public class Heathens extends Visual {
         colorMode(HSB);
         noCursor();
         
-        setFrameSize(512);
+        setFrameSize(1024);
+        frameRate(60);
 
         startMinim();
         loadAudio("heathens.mp3");
@@ -79,7 +80,8 @@ public class Heathens extends Visual {
         getAudioPlayer().setGain(-20);
     }
 
-    Eoin Eoin = new Eoin(getFrameSize());
+    Eoin Eoin = new Eoin(1024);
+    Kieran Kieran = new Kieran(getFrameSize());
     public void draw()
     {
 
@@ -94,6 +96,7 @@ public class Heathens extends Visual {
           case 2: //Kieran SECTION 2
           {
             System.out.println("HELLO2");
+            Kieran.render(this);
             break;
           }
           case 3: //Aman SECTION 3
