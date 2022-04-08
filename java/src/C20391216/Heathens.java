@@ -12,7 +12,7 @@ public class Heathens extends Visual {
 
     public void settings()
     {
-        size(1024, 1024, P3D);
+        size(800, 800);
         println("CWD: " + System.getProperty("user.dir"));
         //fullScreen(P3D, SPAN);
     }
@@ -163,6 +163,7 @@ public class Heathens extends Visual {
           case 2: //Kieran SECTION 2
           {
             System.out.println("HELLO2");
+            
             break;
           }
           case 3: //Aman SECTION 3
