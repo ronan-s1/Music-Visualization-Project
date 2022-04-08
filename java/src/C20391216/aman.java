@@ -85,7 +85,7 @@ public class aman extends Visual
 		}
 		amplitude = total / h.getAudioBuffer().size();
 
-        rotate += amplitude / 2;
+        rotate += amplitude / 1.5f;
         h.rotate(rotate);
         
         for(int i = 0; i < h.getAudioBuffer().size(); i++)
