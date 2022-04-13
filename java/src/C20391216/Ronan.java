@@ -22,8 +22,8 @@ public class Ronan extends Visual
     {
         if (key >= '0' && key <= '4')
         {
-			mode = key - '0';
-		}
+		mode = key - '0';
+	}
 
         switch(key)
         {
@@ -84,8 +84,6 @@ public class Ronan extends Visual
 
         startMinim();
         loadAudio("heathens.mp3");
-
-        hint(ENABLE_DEPTH_SORT); // option that allows transparency
     }
 
 
