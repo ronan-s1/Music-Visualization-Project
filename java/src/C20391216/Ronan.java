@@ -74,7 +74,7 @@ public class Ronan extends Visual
 
     public void setup()
     {
-        colorMode(HSB);
+        // colorMode(HSB);
         // noCursor();
         
         setFrameSize(256);
@@ -85,22 +85,25 @@ public class Ronan extends Visual
         hint(ENABLE_DEPTH_SORT); // option that allows transparency
     }
 
-    void drawCube()
+    void drawCube(float cubeSpeed)
     {
         calculateAverageAmplitude();
         stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
         strokeWeight(5);
-        noFill();
-        lights();
+
         pushMatrix();
+
         camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
         translate(0, 0, -200);
         rotateX(angle);
         rotateZ(angle);       
-        float boxSize = 50 + (200 * getSmoothedAmplitude()); 
-        box(boxSize);   
+
+        float boxSize = 40 + (200 * getSmoothedAmplitude()); 
+        box(boxSize);
+
         popMatrix();
-        angle += 0.01f;
+
+        angle += cubeSpeed / 3;
     }
 
     void drawCircle(float size)
@@ -113,11 +116,11 @@ public class Ronan extends Visual
   
     void drawPyramid(float t, float colour)
     { 
-        // this pyramid has 4 sides, each drawn as a separate triangle
-        // each side has 3 vertices, making up a triangle shape
-        // the parameter " t " determines the size of the pyramid
+        // theres 3 vertexs for the 3 the 3 triangles on the prism
+        // T is the size of the shape
         beginShape(TRIANGLES);
-      
+        
+        // colour changes depending on the amplitude
         fill(colour, 255, 255, 150);
         vertex(-t, -t, -t);
         vertex( t, -t, -t);
@@ -140,64 +143,48 @@ public class Ronan extends Visual
     
         endShape();
     }
-
     
 
     public void draw()
     {
+        colorMode(HSB);
         background(0);
-        float total = 0;
-        float amplitude = 0;
+
         float smoothedAmplitude = 0;
         float size = 0;
         float c = 0;
-        float smallC = 0;
-        // int borderStroke = 5;
+        float speed = 0;
 
-        for(int i = 0 ; i < getAudioBuffer().size(); i ++)
-        {
-            total += abs(getAudioBuffer().get(i));
-        }
-        
-        amplitude = total / getAudioBuffer().size();
-        smoothedAmplitude = lerp(smoothedAmplitude, amplitude, 0.1f);
+        smoothedAmplitude = getSmoothedAmplitude() / 8;
 
-        if (theta > 110)
-        {
-            theta += 0.01;
-        }
+        speed = smoothedAmplitude * 1.5f;
+        theta += speed;
 
-        else
-        {
-            theta += smoothedAmplitude * 1.5;
-        }
-        
         translate(width/2, height/2, 0);
         rotateX(theta);
         rotateY(theta);
 
-        size = map(smoothedAmplitude, 0, 0.1f, 10, 48);
-        c = map(smoothedAmplitude, 0, 0.09f, 0, 255);
-        smallC = map(c, 0, 255, 0, 127);
-        println(smallC, c);
-        drawPyramid(50, c);
+        size = map(smoothedAmplitude, 0, 0.1f, 10, 45);
+        c = map(smoothedAmplitude, 0, 0.08f, 0, 255) / 2;
+
+        drawPyramid(size * 2, c * 2);
 
         translate(150, 150);
-        drawPyramid(size, smallC);
+        drawPyramid(size, c);
         drawCircle(size);
 
         translate(-300, -300);
-        drawPyramid(size, smallC);
+        drawPyramid(size, c);
         drawCircle(size);
 
         translate(300, 0);
-        drawPyramid(size, smallC);
+        drawPyramid(size, c);
         drawCircle(size);
 
         translate(-300, 300);
-        drawPyramid(size, smallC);
+        drawPyramid(size, c);
         drawCircle(size);
 
-        drawCube();
+        drawCube(speed);
     }
 }
