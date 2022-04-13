@@ -78,6 +78,7 @@ public class Ronan extends Visual
     {
         colorMode(HSB);
         noCursor();
+        frameRate(60);
         
         setFrameSize(256);
 
@@ -135,7 +136,7 @@ public class Ronan extends Visual
     {
         float x, y;
         float h = random(7);
-        float loop = floor(getSmoothedAmplitude() * 45);
+        float loop = floor(getSmoothedAmplitude() * 30);
         
         stroke(colour, 255, 255);
         for (int i = 0; i < loop; i++)
