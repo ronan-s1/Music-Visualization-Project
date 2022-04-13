@@ -77,7 +77,7 @@ public class Ronan extends Visual
     public void setup()
     {
         colorMode(HSB);
-        // noCursor();
+        noCursor();
         
         setFrameSize(256);
 
@@ -128,6 +128,24 @@ public class Ronan extends Visual
         lights();
         circle(0, 0, size + 30);
         triangle(0, 0, 0, 0, 0, 0);
+    }
+
+
+    float drawRandom(float colour)
+    {
+        float x, y;
+        float h = random(7);
+        float loop = floor(getSmoothedAmplitude() * 45);
+        
+        stroke(colour, 255, 255);
+        for (int i = 0; i < loop; i++)
+        {
+            x = random(width);
+            y = random(height);
+            circle(x, y, h);
+        }
+
+        return loop;
     }
 
   
@@ -182,6 +200,7 @@ public class Ronan extends Visual
         theta += speed;
 
         drawBorder(smoothedAmplitude, c);
+        float end = drawRandom(c2);
 
         translate(width/2, height/2, 0);
         rotateX(theta);
@@ -204,7 +223,13 @@ public class Ronan extends Visual
         translate(-300 * 1.8f, 300 * 1.8f);
         drawPyramid(size, c);
         drawCircle(size);
- 
+
+        if (end == 0)
+        {
+            theta += 0.01f;
+            speed = 0.01f;
+        }
+
         drawCube(speed);
     }
 }
