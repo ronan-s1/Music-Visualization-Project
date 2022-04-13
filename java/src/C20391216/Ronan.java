@@ -101,12 +101,12 @@ public class Ronan extends Visual
         rotateX(angle);
         rotateZ(angle);       
 
-        float boxSize = 50 + (125 * getSmoothedAmplitude());
+        float boxSize = 30 + (125 * getSmoothedAmplitude());
         box(boxSize);
 
         popMatrix();
 
-        angle += cubeSpeed * 0.4;
+        angle += cubeSpeed * 0.4f;
     }
 
 
@@ -189,19 +189,19 @@ public class Ronan extends Visual
 
         drawPyramid(size * 2.4f, c2);
         
-        translate(150, 150);
+        translate(150 * 1.8f, 150 * 1.8f);
         drawPyramid(size, c);
         drawCircle(size);
 
-        translate(-300, -300);
+        translate(-300 * 1.8f, -300 * 1.8f);
         drawPyramid(size, c);
         drawCircle(size);
 
-        translate(300, 0);
+        translate(300 * 1.8f, 0);
         drawPyramid(size, c);
         drawCircle(size);
 
-        translate(-300, 300);
+        translate(-300 * 1.8f, 300 * 1.8f);
         drawPyramid(size, c);
         drawCircle(size);
  
