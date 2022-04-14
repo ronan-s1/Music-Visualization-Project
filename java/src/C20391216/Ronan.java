@@ -77,7 +77,7 @@ public class Ronan extends Visual
     public void setup()
     {
         colorMode(HSB);
-        // noCursor();
+        noCursor();
         frameRate(60);
         
         setFrameSize(256);
