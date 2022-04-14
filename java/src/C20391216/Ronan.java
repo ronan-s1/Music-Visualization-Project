@@ -77,15 +77,13 @@ public class Ronan extends Visual
     public void setup()
     {
         colorMode(HSB);
-        noCursor();
+        // noCursor();
         frameRate(60);
         
         setFrameSize(256);
 
         startMinim();
         loadAudio("heathens.mp3");
-
-        hint(ENABLE_DEPTH_SORT); // option that allows transparency
     }
 
 
@@ -113,7 +111,7 @@ public class Ronan extends Visual
 
     void drawBorder(float smoothedAmplitude, float colour)
     {
-        float border = map(smoothedAmplitude, 0, 0.2f, 3, 100);
+        float border = map(smoothedAmplitude, 0, 0.15f, 3, 70);
         fill(colour, 255, 255);
         stroke(colour, 255, 255);
         rect(0, 0, width, border); // Top
@@ -136,8 +134,8 @@ public class Ronan extends Visual
     {
         float x, y;
         float h = random(7);
-        float loop = floor(getSmoothedAmplitude() * 30);
-        
+        float loop = floor(map(getSmoothedAmplitude(), 0, 0.5f, 0, 9));
+        println(loop);
         stroke(colour, 255, 255);
         for (int i = 0; i < loop; i++)
         {
