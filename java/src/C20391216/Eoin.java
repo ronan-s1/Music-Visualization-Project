@@ -14,7 +14,6 @@ public class Eoin extends Visual
     {
         this.width = width;
         lerpedBuffer = new float[width];
-        lerpedBuffer2 = new float[width];
         y = 0;
         smoothedY = 0;
         smoothedAmplitude = 0;
@@ -41,33 +40,30 @@ public class Eoin extends Visual
 
         sum = 0;
 
-        for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
-        {
-            sum += Visual.abs(h.getAudioBuffer().get(i));
-            lerpedBuffer2[i] = Visual.lerp(lerpedBuffer2[i], h.getAudioBuffer().get(i), 0.05f);
-        }
-
-        average2= sum / (float) h.getAudioBuffer().size();
         h.background(0);
-        
+        /* h.height = 1920;
+        h.width = 1080; */
+         
         for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
         {
             
             float c = Visual.map(i, 0, h.getAudioBuffer().size(), 0, 255);
             h.stroke(c, 255, 255);
-            float f1 = lerpedBuffer[i] * halfH * 2.7f;
-            h.rect(i, halfH*2.0f + f1, i, halfH - f1);    
+            float f1 = lerpedBuffer[i] * halfH * 2.0f;
+            h.rect(i, halfH*1.95f + f1, i, halfH - f1);    
             
-            float f2 = lerpedBuffer[i] * halfH * 2.7f;
+            float f2 = lerpedBuffer[i] * halfH * 2.0f;
             h.rect(i,0 - f2, i, 0 + f2); 
 
-            float f3 = lerpedBuffer2[i] * halfH * 2.7f;
+            float f3 = lerpedBuffer[i] * halfH * 2.0f;
             h.rect(0+f3,i, 0-f3, i); 
 
-            float f4 = lerpedBuffer2[i] * halfH * 2.7f;
+            float f4 = lerpedBuffer[i] * halfH * 2.0f;
             h.rect(h.height-f4,i, h.width + f4, i); 
 
         }
+
+        
     }
 }    
 

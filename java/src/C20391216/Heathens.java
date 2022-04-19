@@ -8,6 +8,7 @@ public class Heathens extends Visual {
     {
         size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
+        //fullScreen(P3D, SPAN);
     }
 
     int mode = 1;
@@ -80,7 +81,7 @@ public class Heathens extends Visual {
         getAudioPlayer().setGain(-20);
     }
 
-    Eoin Eoin = new Eoin(1024);
+    Eoin Eoin = new Eoin(1920);
     public void draw()
     {
 
