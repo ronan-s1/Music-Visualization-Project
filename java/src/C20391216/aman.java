@@ -15,7 +15,7 @@ public class aman extends Visual
 
         //create an eye shape using this code
         h.stroke(0);
-        h.strokeWeight(10);
+        h.strokeWeight(8);
         h.fill(255);
         h.beginShape();
         for(float i = 0; i < TWO_PI; i += 0.01f)
