@@ -8,8 +8,10 @@ public class Eoin extends Visual
     float[] lerpedBuffer;
     float[] lerpedBuffer2;
     float y;
+    float angle = 0;
     float smoothedY;
     float smoothedAmplitude;
+
     public Eoin(int width)
     {
         this.width = width;
@@ -61,9 +63,32 @@ public class Eoin extends Visual
             float f4 = lerpedBuffer[i] * halfH * 2.0f;
             h.rect(h.height-f4,i, h.width + f4, i); 
 
-        }
+            drawCube(1);
 
+        }
         
+        
+    }
+
+    void drawCube(float cubeSpeed)
+    {
+        calculateAverageAmplitude();
+        stroke(map(getSmoothedAmplitude(), 0, 0.8f, 0, 255), 255, 255);
+        strokeWeight(5);
+
+        pushMatrix();
+
+        camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
+        translate(0, 0, -200);
+        rotateX(angle);
+        rotateZ(angle);       
+
+        float boxSize = 30 + (125 * getSmoothedAmplitude());
+        box(boxSize);
+
+        popMatrix();
+
+        angle += angle* 0.4f;
     }
 }    
 
