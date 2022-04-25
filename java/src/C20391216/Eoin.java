@@ -53,17 +53,21 @@ public class Eoin extends Visual
             float c = Visual.map(i, 0, h.getAudioBuffer().size(), 0, 255);
             h.stroke(c, 255, 255);
             float f1 = lerpedBuffer[i] * halfH * 2.0f;
-            h.rect(i, halfH*1.95f + f1, i, halfH - f1);    
+            h.rect(i*2, halfH*1.95f + f1, i, halfH - f1);    
             
             float f2 = lerpedBuffer[i] * halfH * 2.0f;
-            h.rect(i,0 - f2, i, 0 + f2); 
+            h.rect(i*2,0 - f2, i, 0 + f2); 
 
             float f3 = lerpedBuffer[i] * halfH * 2.0f;
             h.rect(0+f3,i, 0-f3, i); 
 
             float f4 = lerpedBuffer[i] * halfH * 2.0f;
-            h.rect(h.height-f4,i, h.width + f4, i); 
+            h.rect(h.width-f4,i, h.height + f4, i); 
 
+            h.noFill();
+            float fcircle = lerpedBuffer[i] * halfH * 4.0f;
+            h.circle(width/2, 512, 300 + fcircle);
+           // h.rect(250+f4,200+f4, 1425+f4, 625+f4);
             
 
         }
