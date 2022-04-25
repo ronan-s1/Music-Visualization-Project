@@ -68,14 +68,9 @@ public class Eoin extends Visual
 
         }
 
-<<<<<<< HEAD
-        
-        
-=======
        
 
 
->>>>>>> 866db911c77c09a5e1f9506c5c07d35d8e8727be
         
     }
 
