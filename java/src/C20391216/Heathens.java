@@ -6,7 +6,7 @@ public class Heathens extends Visual {
 
     public void settings()
     {
-        size(800, 800);
+        size(700, 700);
         println("CWD: " + System.getProperty("user.dir"));
         //fullScreen(P3D, SPAN);
     }
@@ -75,7 +75,7 @@ public class Heathens extends Visual {
 
         startMinim();
         loadAudio("heathens.mp3");
-        
+        getAudioPlayer().setGain(-20);
     }
     
     aman aman = new aman();

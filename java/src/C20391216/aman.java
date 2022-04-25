@@ -5,6 +5,8 @@ import ie.tudublin.Visual;
 public class aman extends Visual
 {
     float rotate = 0;
+
+    //here is where the main eye is made too
     public void render(Heathens h)
     {
         h.colorMode(RGB);
@@ -12,21 +14,6 @@ public class aman extends Visual
 
         float halfW = h.width / 2;
         float halfH = h.height / 2;
-
-        //create an eye shape using this code
-        h.stroke(0);
-        h.strokeWeight(8);
-        h.fill(255);
-        h.beginShape();
-        for(float i = 0; i < TWO_PI; i += 0.01f)
-        {
-            float r = h.width/2.5f;
-            float x = r * cos(i);
-            float y = r * pow(sin(i), 3) * 0.5f;
-            //puts the eye in the center of the screen
-            h.vertex(x+halfW, y+halfH);
-        }
-        h.endShape();
 
         float total = 0;
         float amplitude = 0;
@@ -38,11 +25,26 @@ public class aman extends Visual
         amplitude = total / h.getAudioBuffer().size();
         smoothedAmplitude = lerp(smoothedAmplitude, amplitude, 0.1f);
         //make visualizer more intense
-        smoothedAmplitude = smoothedAmplitude * 5;
+        smoothedAmplitude = smoothedAmplitude * 3;
+
+        float colour = smoothedAmplitude * 1500;
+        h.background(colour,0,0);
+
+        //create an eye shape using this code
+        h.stroke(255,0,0);
+        h.beginShape();
+        for(float i = 0; i < TWO_PI; i += 0.01f)
+        {
+            float r = h.width/2.5f;
+            float x = r * cos(i);
+            float y = r * pow(sin(i), 3) * 0.5f;
+            //puts the eye in the center of the screen
+            h.vertex(x+halfW, y+halfH);
+        }
+        h.endShape();
 
         //create the iris
         h.strokeWeight(10);
-        h.stroke(0);
         for(int i = 0; i < h.getAudioBuffer().size(); i++)
         {
             //the iris
@@ -58,13 +60,12 @@ public class aman extends Visual
 
         //drawing the ring inside the eye
         h.noFill();
-        h.strokeWeight(10);
         h.beginShape();
         h.stroke(139, 0, 0);
         h.strokeWeight(5);
         for(float i = 0; i < TWO_PI; i += 0.01f)
         {
-            //make the ring go crazy and randomly but still on beat
+            //make the ring go crazy and randomly but still on sync to music
             float r = h.width/9 + (smoothedAmplitude * h.random(50,80));
             float x = r * cos(i);
             float y = r * sin(i);
@@ -79,13 +80,7 @@ public class aman extends Visual
         h.pushMatrix();
         h.translate(halfW, halfH);
 
-		for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
-        {
-			total += abs(h.getAudioBuffer().get(i));
-		}
-		amplitude = total / h.getAudioBuffer().size();
-
-        rotate += amplitude / 1.5f;
+        rotate += amplitude / 0.5f;
         h.rotate(rotate);
         
         for(int i = 0; i < h.getAudioBuffer().size(); i++)
