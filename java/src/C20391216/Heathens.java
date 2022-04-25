@@ -46,6 +46,7 @@ public class Heathens extends Visual {
             {
                 getAudioPlayer().cue(64900);
                 getAudioPlayer().play();
+                
                 break;
             }
 
@@ -81,7 +82,7 @@ public class Heathens extends Visual {
     }
 
     Eoin Eoin = new Eoin(1024);
-    Kieran Kieran = new Kieran(getFrameSize());
+    Kieran Kieran = new Kieran(1024);
     public void draw()
     {
 
