@@ -8,8 +8,10 @@ public class Eoin extends Visual
     float[] lerpedBuffer;
     float[] lerpedBuffer2;
     float y;
+    float angle = 0;
     float smoothedY;
     float smoothedAmplitude;
+
     public Eoin(int width)
     {
         this.width = width;
