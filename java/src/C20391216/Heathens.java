@@ -82,6 +82,8 @@ public class Heathens extends Visual {
 
     Eoin Eoin = new Eoin(1024);
     Kieran Kieran = new Kieran(getFrameSize());
+    Ronan Ronan = new Ronan();
+
     public void draw()
     {
 
@@ -107,6 +109,7 @@ public class Heathens extends Visual {
           case 4: //Ronan SECTION 4
           {
             System.out.println("HELLO4");
+            Ronan.render();
             break;
           }
       }
