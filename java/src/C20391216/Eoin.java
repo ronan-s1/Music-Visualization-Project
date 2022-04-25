@@ -33,6 +33,7 @@ public class Eoin extends Visual
         float cx = h.width / 2;
         float cy = h.height / 2;
 
+        
         for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
         {
             sum += Visual.abs(h.getAudioBuffer().get(i));
@@ -67,12 +68,18 @@ public class Eoin extends Visual
 
         }
 
+<<<<<<< HEAD
         
         
+=======
+       
+
+
+>>>>>>> 866db911c77c09a5e1f9506c5c07d35d8e8727be
         
     }
 
-  
+
 }    
 
 
