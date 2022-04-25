@@ -109,7 +109,7 @@ public class Heathens extends Visual {
           case 4: //Ronan SECTION 4
           {
             System.out.println("HELLO4");
-            Ronan.render();
+            Ronan.render(this);
             break;
           }
       }

@@ -4,14 +4,14 @@ import processing.core.PConstants;
 
 public class Ronan
 {
-    Heathens h = new Heathens();
+    // Heathens h = new Heathens();
     float theta = 0;
     int mode = 1;
     float angle = 0;
     boolean paused = false;
 
 
-    void drawCube(float cubeSpeed)
+    void drawCube(float cubeSpeed, Heathens h)
     {
         h.calculateAverageAmplitude();
         h.stroke(Heathens.map(h.getSmoothedAmplitude(), 0, 0.8f, 0, 255), 255, 255);
@@ -33,7 +33,7 @@ public class Ronan
     }
 
 
-    void drawBorder(float smoothedAmplitude, float colour)
+    void drawBorder(float smoothedAmplitude, float colour, Heathens h)
     {
         float border = Heathens.map(smoothedAmplitude, 0, 0.15f, 3, 70);
         h.fill(colour, 255, 255);
@@ -45,7 +45,7 @@ public class Ronan
     }
 
 
-    void drawCircle(float size)
+    void drawCircle(float size, Heathens h)
     {
         h.noFill();
         h.lights();
@@ -54,7 +54,7 @@ public class Ronan
     }
 
 
-    float drawRandom(float colour)
+    float drawRandom(float colour, Heathens h)
     {
         float x, y;
         float h2 = h.random(7);
@@ -71,7 +71,7 @@ public class Ronan
     }
 
   
-    void drawPyramid(float t, float colour)
+    void drawPyramid(float t, float colour, Heathens h)
     { 
         // theres 3 vertexs for the 3 the 3 triangles on the prism
         // T is the size of the shape
@@ -103,7 +103,7 @@ public class Ronan
     }
     
 
-    public void render()
+    public void render(Heathens h)
     {
         h.background(0);
         float smoothedAmplitude = 0;
@@ -121,30 +121,30 @@ public class Ronan
         speed = smoothedAmplitude * 1.6f;
         theta += speed;
 
-        drawBorder(smoothedAmplitude, c);
-        float end = drawRandom(c2);
+        drawBorder(smoothedAmplitude, c, h);
+        float end = drawRandom(c2, h);
 
         h.translate(h.width/2, h.height/2, 0);
         h.rotateX(theta);
         h.rotateY(theta);
 
-        drawPyramid(size * 2.4f, c2);
+        drawPyramid(size * 2.4f, c2, h);
         
         h.translate(150 * 1.8f, 150 * 1.8f);
-        drawPyramid(size, c);
-        drawCircle(size);
+        drawPyramid(size, c, h);
+        drawCircle(size, h);
 
         h.translate(-300 * 1.8f, -300 * 1.8f);
-        drawPyramid(size, c);
-        drawCircle(size);
+        drawPyramid(size, c, h);
+        drawCircle(size, h);
 
         h.translate(300 * 1.8f, 0);
-        drawPyramid(size, c);
-        drawCircle(size);
+        drawPyramid(size, c, h);
+        drawCircle(size, h);
 
         h.translate(-300 * 1.8f, 300 * 1.8f);
-        drawPyramid(size, c);
-        drawCircle(size);
+        drawPyramid(size, c, h);
+        drawCircle(size, h);
 
         if (end == 0)
         {
@@ -152,6 +152,6 @@ public class Ronan
             speed = 0.01f;
         }
 
-        drawCube(speed);
+        drawCube(speed, h);
     }
 }
