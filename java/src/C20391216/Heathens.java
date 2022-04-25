@@ -6,17 +6,20 @@ public class Heathens extends Visual {
 
     public void settings()
     {
-        size(1024, 1024, P3D);
+        size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
     }
 
     int mode = 1;
     boolean paused = false;
+
     public void keyPressed()
     {
-        if (key >= '0' && key <= '4') {
+        if (key >= '0' && key <= '4')
+        {
 			mode = key - '0';
 		}
+
         switch(key)
         {
             case ' ':
@@ -26,6 +29,7 @@ public class Heathens extends Visual {
                     getAudioPlayer().play();
                     paused = false;
                 }
+
                 else
                 {
                     getAudioPlayer().pause();
@@ -39,7 +43,6 @@ public class Heathens extends Visual {
                 getAudioPlayer().cue(0);
                 getAudioPlayer().play();
                 break;
-
             }
 
             case '2':
@@ -62,14 +65,13 @@ public class Heathens extends Visual {
                 getAudioPlayer().play();
                 break;
             }
-            
-         }
+        }
     }
 
     public void setup()
     {
         colorMode(HSB);
-        noCursor();
+        // noCursor();
         
         setFrameSize(1024);
         frameRate(60);
@@ -86,32 +88,32 @@ public class Heathens extends Visual {
 
     public void draw()
     {
+        switch(mode)
+        {
+            case 1: //Eoin SECTION 1
+            {
+                Eoin.render(this);
+                break;
+            }
+            
+            case 2: //Kieran SECTION 2
+            {
+                Kieran.render(this);
+                break;
+            }
 
-      switch(mode)
-      {
-          case 1: //Eoin SECTION 1
-          {
-            System.out.println("HELLO1");
-            Eoin.render(this);
-            break;
-          }
-          case 2: //Kieran SECTION 2
-          {
-            System.out.println("HELLO2");
-            Kieran.render(this);
-            break;
-          }
-          case 3: //Aman SECTION 3
-          {
-            System.out.println("HELLO3");
-            break;
-          }
-          case 4: //Ronan SECTION 4
-          {
-            System.out.println("HELLO4");
-            Ronan.render(this);
-            break;
-          }
-      }
+            case 3: //Aman SECTION 3
+            {
+            
+                break;
+            }
+
+            case 4: //Ronan SECTION 4
+            {
+            
+                Ronan.render(this);
+                break;
+            }
+        }
     }
 }
