@@ -17,8 +17,8 @@ public class Heathens extends Visual {
     {
         if (key >= '0' && key <= '4')
         {
-			mode = key - '0';
-		}
+		mode = key - '0';
+	}
 
         switch(key)
         {
@@ -110,7 +110,6 @@ public class Heathens extends Visual {
 
             case 4: //Ronan SECTION 4
             {
-            
                 Ronan.render(this);
                 break;
             }
