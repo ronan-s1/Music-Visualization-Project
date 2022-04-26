@@ -4,70 +4,39 @@ import ie.tudublin.Visual;
 
 public class Kieran
 {
+    float ang = 0.0001f;
     int width;
-    float[] lerpedBuffer;
-    float[] lerpedBuffer2;
     float y;
     float smoothedY;
     float smoothedAmplitude;
-    public Kieran(int width)
+    public Kieran()
     {
-        this.width = width;
-        lerpedBuffer = new float[width];
-        lerpedBuffer2 = new float[width];
         y = 0;
         smoothedY = 0;
         smoothedAmplitude = 0;
-
     }
 
     
     public void render(Heathens h)
     {
-        float halfH = h.height / 2;
-        float average = 0;
-        float average2 = 0;
-        float sum = 0;
-        smoothedAmplitude = Visual.lerp(smoothedAmplitude, average, 0.1f);
-        float cx = h.width / 2;
-        float cy = h.height / 2;
-
-        for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
-        {
-            sum += Visual.abs(h.getAudioBuffer().get(i));
-            lerpedBuffer[i] = Visual.lerp(lerpedBuffer[i], h.getAudioBuffer().get(i), 0.05f);
-        }
-        average= sum / (float) h.getAudioBuffer().size();
-
-        sum = 0;
-
-        for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
-        {
-            sum += Visual.abs(h.getAudioBuffer().get(i));
-            lerpedBuffer2[i] = Visual.lerp(lerpedBuffer2[i], h.getAudioBuffer().get(i), 0.05f);
-        }
-
-        average2= sum / (float) h.getAudioBuffer().size();
         h.background(0);
+        h.noFill();
+        h.stroke(200,200,200);
+        // h.ellipse(200, 300, 100, 100);
+        h.pushMatrix();
         
-        for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
-        {
-            
-            float c = Visual.map(i, 0, h.getAudioBuffer().size(), 0, 255);
-            h.stroke(c, 255, 255);
-            float f1 = lerpedBuffer[i] * halfH * 5f;
-            h.rect(i, halfH*2.0f + f1, i, halfH - f1);    
-            
-            // float f2 = lerpedBuffer[i] * halfH * 1.7f;
-            // h.rect(i,0 - f2, i, 0 + f2); 
+        // h.translate(h.width/2, h.height/2);
+        // h.rotateX(0.1f);
+        // h.rotateY(0.5f);
+        // h.rotateZ(1.0f);
+        
 
-            // float f3 = lerpedBuffer2[i] * halfH * 1.7f;
-            // h.rect(0+f3,i, 0-f3, i); 
-
-            // float f4 = lerpedBuffer2[i] * halfH * 1.7f;
-            // h.rect(h.height-f4,i, h.width + f4, i); 
-
-        }
+        h.translate(h.width/2, h.height/2, 0);
+        //h.rotateX(ang);
+        h.rotateX(ang); 
+        ang +=0.5f; 
+        h.ellipse(0, 0, 75, 75);
+        h.popMatrix();
     }
 }    
 
