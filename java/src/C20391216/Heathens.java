@@ -17,8 +17,8 @@ public class Heathens extends Visual {
     {
         if (key >= '0' && key <= '4')
         {
-			mode = key - '0';
-		}
+		mode = key - '0';
+	}
 
         switch(key)
         {
