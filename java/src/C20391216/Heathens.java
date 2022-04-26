@@ -110,7 +110,6 @@ public class Heathens extends Visual {
 
             case 4: //Ronan SECTION 4
             {
-            
                 Ronan.render(this);
                 break;
             }
