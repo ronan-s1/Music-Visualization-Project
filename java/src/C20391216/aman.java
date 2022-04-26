@@ -25,7 +25,7 @@ public class aman extends Visual
         amplitude = total / h.getAudioBuffer().size();
         smoothedAmplitude = lerp(smoothedAmplitude, amplitude, 0.1f);
         //make visualizer more intense
-        smoothedAmplitude = smoothedAmplitude * 3;
+        smoothedAmplitude = smoothedAmplitude * 5;
 
         float colour = smoothedAmplitude * 1500;
         h.background(colour,0,0);
@@ -66,7 +66,7 @@ public class aman extends Visual
         for(float i = 0; i < TWO_PI; i += 0.01f)
         {
             //make the ring go crazy and randomly but still on sync to music
-            float r = h.width/9 + (smoothedAmplitude * h.random(50,80));
+            float r = h.width/9 + (smoothedAmplitude * h.random(10,150));
             float x = r * cos(i);
             float y = r * sin(i);
             //center the ring
@@ -78,21 +78,20 @@ public class aman extends Visual
         h.fill(0);
         h.stroke(0);
         h.pushMatrix();
-        h.translate(halfW, halfH);
+        h.translate(halfW, halfH); //translate to center
 
-        rotate += amplitude / 0.5f;
+        rotate += amplitude / 0.7f;
         h.rotate(rotate);
         
-        for(int i = 0; i < h.getAudioBuffer().size(); i++)
-        {
-            float radius3 = map(smoothedAmplitude, 0, 3, h.width/60, 500);
+        //radius for the tomoe
+        float radius3 = map(smoothedAmplitude, 0, 3, h.width/60, 500);
 
-            //tomoes are placed in a triangular way
-            h.ellipse(0, h.height/9.5f, radius3, radius3);
-            h.ellipse(h.width/11.5f, h.height/-18.5f, radius3, radius3);
-            h.ellipse(h.width/-11.5f, h.height/-18.5f, radius3, radius3);
-            
-        }
+        // 3 'tomoe' made to spin around the center pupil
+        for( int i = 0; i < 3; i++ ) 
+        {
+            h.rotate( TWO_PI/3 );
+            h.ellipse(halfW/7.5f, halfH/7.5f, radius3, radius3);
+        }  
         h.popMatrix();
     }
 }
