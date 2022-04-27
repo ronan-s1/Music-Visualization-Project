@@ -76,7 +76,6 @@ public class Eoin extends Visual
             //h.rect(250+f4,200+f4, 1425+f4, 625+f4);
             
         }
-
     
     }
 
