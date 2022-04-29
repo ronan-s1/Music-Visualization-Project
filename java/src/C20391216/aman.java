@@ -5,6 +5,7 @@ import ie.tudublin.Visual;
 public class aman extends Visual
 {
     float rotate = 0;
+    Boolean eyesClose = false;
 
     //here is where the main eye is made too
     public void render(Heathens h)
@@ -25,23 +26,46 @@ public class aman extends Visual
         amplitude = total / h.getAudioBuffer().size();
         smoothedAmplitude = lerp(smoothedAmplitude, amplitude, 0.1f);
         //make visualizer more intense
-        smoothedAmplitude = smoothedAmplitude * 5;
+        smoothedAmplitude = smoothedAmplitude * 3;
 
+        //make background up in intensity depending on music
         float colour = smoothedAmplitude * 1500;
         h.background(colour,0,0);
 
         //create an eye shape using this code
         h.stroke(255,0,0);
         h.beginShape();
+        h.strokeWeight(10);
         for(float i = 0; i < TWO_PI; i += 0.01f)
         {
-            float r = h.width/2.5f;
-            float x = r * cos(i);
-            float y = r * pow(sin(i), 3) * 0.5f;
-            //puts the eye in the center of the screen
-            h.vertex(x+halfW, y+halfH);
+            if(h.getAudioPlayer().position() < 160500)
+            {
+                float r = h.width/2.5f;
+                float x = r * cos(i);
+                float y = r * pow(sin(i), 3) * 0.5f;
+                //puts the eye in the center of the screen
+                h.vertex(x+halfW, y+halfH);
+            }
+            else
+            {
+                eyesClose = true;
+                h.stroke(0);
+                h.background(255);
+
+                float r = h.width/2.5f;
+                float x = r * cos(i);
+                float y = r * pow(sin(i), 3) * 0.05f;
+                //puts the eye in the center of the screen
+                h.vertex(x+halfW, y+halfH);
+            }
         }
         h.endShape();
+        
+        //skip everything else when eye closes
+        if(eyesClose)
+        {
+            return;
+        }
 
         //create the iris
         h.strokeWeight(10);
@@ -53,9 +77,12 @@ public class aman extends Visual
             h.circle(halfW, halfH, radius);
 
             //draw the pupil for the eye
-            float radius2 = map(smoothedAmplitude, 0, 0.7f, h.width/20, 500);
+            float radius2 = map(smoothedAmplitude * 1.5f, 0, 0.7f, h.width/20, 500);
             h.fill(0);
-            h.circle(halfW, halfH, radius2);
+            h.circle(halfW, halfH, radius2); 
+
+            h.fill(255);
+            h.circle(halfW, halfH, h.getSmoothedAmplitude());
         }
 
         //drawing the ring inside the eye
