@@ -2,7 +2,7 @@ package C20391216;
 
 import ie.tudublin.Visual;
 
-public class aman extends Visual
+public class Aman extends Visual
 {
     float rotate = 0;
     Boolean eyesClose = false;
