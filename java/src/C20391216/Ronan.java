@@ -1,8 +1,9 @@
 package C20391216;
 
+import ie.tudublin.Visual;
 import processing.core.PConstants;
 
-public class Ronan
+public class Ronan extends Visual
 {
     // variable
     float theta = 0;
@@ -14,7 +15,7 @@ public class Ronan
     void drawCube(float cubeSpeed, Heathens h)
     {
         h.calculateAverageAmplitude();
-        h.stroke(Heathens.map(h.getSmoothedAmplitude(), 0, 0.8f, 0, 255), 255, 255);
+        h.stroke(Heathens.map(h.getSmoothedAmplitude(), 0, 0.6f, 0, 255), 255, 255);
         h.strokeWeight(5);
 
         h.pushMatrix();
@@ -36,7 +37,7 @@ public class Ronan
     void drawBorder(float smoothedAmplitude, float colour, Heathens h)
     {
         float border = Heathens.map(smoothedAmplitude, 0, 0.15f, 3, 70);
-        h.fill(colour, 255, 255);
+        h.fill(colour, 255, 255, 150);
         h.stroke(colour, 255, 255);
         h.rect(0, 0, h.width, border); // Top
         h.rect(h.width - border, 0, border, h.height); // Right
@@ -105,6 +106,7 @@ public class Ronan
     // main function that combines everything
     public void render(Heathens h)
     {
+        h.colorMode(HSB);
         h.background(0);
         float smoothedAmplitude = 0;
         float size = 0;
@@ -116,14 +118,14 @@ public class Ronan
 
         // getting different colours
         size = Heathens.map(smoothedAmplitude, 0, 0.1f, 10, 50);
-        c = Heathens.map(smoothedAmplitude, 0, 0.07f, 0, 255);
-        c2 = Heathens.map(smoothedAmplitude, 0, 0.055f, 0, 255);
+        c = Heathens.map(smoothedAmplitude, 0, 0.055f, 0, 255);
+        c2 = Heathens.map(smoothedAmplitude, 0.08f, 0, 0, 255);
 
         speed = smoothedAmplitude * 1.6f;
         theta += speed;
 
-        drawBorder(smoothedAmplitude, c, h);
-        float end = drawRandom(c2, h);
+        drawBorder(smoothedAmplitude, c2, h);
+        float end = drawRandom(c, h);
 
         h.translate(h.width/2, h.height/2, 0);
         h.rotateX(theta);

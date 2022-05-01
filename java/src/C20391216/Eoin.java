@@ -19,12 +19,12 @@ public class Eoin extends Visual
         y = 0;
         smoothedY = 0;
         smoothedAmplitude = 0;
-
     }
 
     
     public void render(Heathens h)
     {
+        h.colorMode(HSB);
         float halfH = h.height / 2;
         float average = 0;
         float average2 = 0;
