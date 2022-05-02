@@ -42,14 +42,13 @@ public class Eoin extends Visual
         sum = 0;
 
         h.background(0);
-        /* h.height = 1920;
-        h.width = 1080; */
-         
+         // For loop to loop through all of the visuals
         for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
         {
-            
+            // These are to map through the colour specturm and change colours while visualising
             float c = Visual.map(i, 0, h.getAudioBuffer().size(), 0, 255);
             float c2 = Visual.map(i, 0, h.getAudioBuffer().size(), 255, 0);
+            
             h.stroke(c, 255, 255);
             float f1 = lerpedBuffer[i] * halfH * 2.5f;
             h.rect(i*2, halfH*1.95f + f1, i, halfH - f1);    
