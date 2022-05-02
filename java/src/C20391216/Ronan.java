@@ -122,13 +122,16 @@ public class Ronan
         size = Heathens.map(smoothedAmplitude, 0, 0.1f, 10, 50);
         c = Heathens.map(smoothedAmplitude, 0, 0.055f, 0, 255);
         c2 = Heathens.map(smoothedAmplitude, 0.08f, 0, 0, 255);
-
+        
+        // chnaging speed with amplitude      
         speed = smoothedAmplitude * 1.6f;
         theta += speed;
 
         drawBorder(smoothedAmplitude, c2, h);
         float end = drawRandom(c, h);
-
+        
+        
+        // positioning big triangle to center of the screen and making it spin
         h.translate(h.width/2, h.height/2, 0);
         h.rotateX(theta);
         h.rotateY(theta);
