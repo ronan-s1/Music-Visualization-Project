@@ -11,8 +11,8 @@
 In this assignment we have 4 visualisations using java processing. Each section was made by a different person in the group. Our visualisations respond to the amplitude of the music and frequency by changing colours, sizes of shapes and so on. To extract audio from an mp3 file, we used the audio minum library. 
 
 # Instructions
-- run the main.java file in the C20391216 folder.
-- space bar is to pause/unpause audio.
+- Run the main.java file in the C20391216 folder.
+- Space bar is to pause/unpause audio.
 - You can switch through the visualisations using the 1, 2, 3 and 4 keys.
 - Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
 
