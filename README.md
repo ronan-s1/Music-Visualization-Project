@@ -17,7 +17,7 @@ In this assignment we have 4 visualisations using java processing. Each section 
 - Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
 
 # How it works
-
+Each visualisation has its own class and they are all in the same packet. We inherit the Visual class so we can use methods in that class in our visulations. We use inheritance and polymorphism to generate objects. 
 
 # What I am most proud of in the assignment
 
