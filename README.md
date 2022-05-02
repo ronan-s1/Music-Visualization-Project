@@ -22,6 +22,7 @@ In this assignment we have 4 visualisations using java processing. Each section 
 Each visualisation has its own class and they are all in the same packet. We inherit the Visual class so we can use methods in that class in our visulations. We use inheritance and polymorphism to generate objects. 
 
 # What I am most proud of in the assignment
+We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.
 
 # Markdown Tutorial
 
