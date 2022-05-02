@@ -17,12 +17,20 @@ In this assignment we have 4 visualisations using java processing. Each section 
 - Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
 
 # How It Works
-Each visualisation has its own class and they are all in the same packet. We inherit the Visual class so we can use methods in that class in our visulations. We use inheritance and polymorphism to generate objects. 
+Each visualisation has its own class and they are all in the same package. Heathens.java is the driver file for this project. We created 4 objects for the visualisation.
+
+```java
+Eoin Eoin = new Eoin(1920);
+Kieran Kieran = new Kieran(1024);
+Ronan Ronan = new Ronan();
+Aman Aman = new Aman();
+```
+each visualisation has a method named "render" which displays the visuals. The objects created in the Heathens class would call the render method inside a switch statement statement so the user can switch between which each visualisation. 
 
 # What Are We Most Proud Of In The Assignment
 We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.
 
-In Ronan class we were able to have particles in the background along with rotating 3d objects which also change colour with the song which we are really prouf of because it goes really well with the music assosiatied with it.
+In the Ronan class, we were able to have particles in the background along with rotating 3d objects which also changes colour. We are really proud of because it goes really well with the music we chose.
 
 # Images From Visualiser
 ### Visualtisation 1
