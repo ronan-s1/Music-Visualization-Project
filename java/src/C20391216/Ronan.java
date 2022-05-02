@@ -3,7 +3,7 @@ package C20391216;
 import ie.tudublin.Visual;
 import processing.core.PConstants;
 
-public class Ronan extends Visual
+public class Ronan
 {
     // variable
     float theta = 0;
@@ -106,7 +106,7 @@ public class Ronan extends Visual
     // main function that combines everything
     public void render(Heathens h)
     {
-        h.colorMode(HSB);
+        h.colorMode(Visual.HSB);
         h.background(0);
         float smoothedAmplitude = 0;
         float size = 0;
