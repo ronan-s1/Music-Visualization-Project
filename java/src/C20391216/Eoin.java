@@ -2,7 +2,7 @@ package C20391216;
 
 import ie.tudublin.Visual;
 
-public class Eoin extends Visual
+public class Eoin
 {
     int width;
     float[] lerpedBuffer;
@@ -24,7 +24,7 @@ public class Eoin extends Visual
     
     public void render(Heathens h)
     {
-        h.colorMode(HSB);
+        h.colorMode(Visual.HSB);
         float halfH = h.height / 2;
         float average = 0;
         float sum = 0;
