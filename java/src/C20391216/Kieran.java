@@ -34,6 +34,7 @@ public class Kieran
         // h.rect(0, 0, h.width, h.height);
 
         // h.blendMode(Visual.ADD);
+        h.colorMode(Visual.HSB);
         h.background(0);
         h.noFill();
         h.stroke(200,200,200);
