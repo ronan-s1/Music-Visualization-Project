@@ -49,6 +49,7 @@ public class Eoin extends Visual
             float c = Visual.map(i, 0, h.getAudioBuffer().size(), 0, 255);
             float c2 = Visual.map(i, 0, h.getAudioBuffer().size(), 255, 0);
             
+            // These will add the border to all 4 sides and will be changed with the frequency of the song
             h.stroke(c, 255, 255);
             float f1 = lerpedBuffer[i] * halfH * 2.5f;
             h.rect(i*2, halfH*1.95f + f1, i, halfH - f1);    
@@ -62,15 +63,14 @@ public class Eoin extends Visual
             float f4 = lerpedBuffer[i] * halfH * 2.0f;
             h.rect(h.width-f4,i, h.height + f4, i); 
 
+            // this adds the 2 circles in the middle that each are mapped to the opposite colour spectrum
             h.noFill();
             h.stroke(c2, 255, 255);
             float fcircle = lerpedBuffer[i] * halfH * 4.0f;
-            //h.circle(width/2, 512, 300 + fcircle);
             h.circle(width/2,halfH,600 + fcircle);
             h.stroke(c, 255, 255);
             h.circle(width/2,halfH,200 + fcircle);
-            //h.triangle(halfH/2, width/4, halfH/2 - 50,  width/4 + 50, halfH/2 + 50, width/4 + 50);
-            //h.rect(250+f4,200+f4, 1425+f4, 625+f4);
+            
             
         }
     
