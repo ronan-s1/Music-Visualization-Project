@@ -6,9 +6,8 @@ public class Heathens extends Visual {
 
     public void settings()
     {
-        size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
-        // fullScreen(P3D, SPAN);
+        fullScreen(P3D, SPAN);
     }
 
     int mode = 1;
