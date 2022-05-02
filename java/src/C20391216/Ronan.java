@@ -1,20 +1,21 @@
 package C20391216;
 
+import ie.tudublin.Visual;
 import processing.core.PConstants;
 
-public class Ronan
+public class Ronan extends Visual
 {
-    // Heathens h = new Heathens();
+    // variable
     float theta = 0;
     int mode = 1;
     float angle = 0;
     boolean paused = false;
 
-
+    // draws cube
     void drawCube(float cubeSpeed, Heathens h)
     {
         h.calculateAverageAmplitude();
-        h.stroke(Heathens.map(h.getSmoothedAmplitude(), 0, 0.8f, 0, 255), 255, 255);
+        h.stroke(Heathens.map(h.getSmoothedAmplitude(), 0, 0.6f, 0, 255), 255, 255);
         h.strokeWeight(5);
 
         h.pushMatrix();
@@ -32,11 +33,11 @@ public class Ronan
         angle += cubeSpeed * 0.4f;
     }
 
-
+    // draws border
     void drawBorder(float smoothedAmplitude, float colour, Heathens h)
     {
         float border = Heathens.map(smoothedAmplitude, 0, 0.15f, 3, 70);
-        h.fill(colour, 255, 255);
+        h.fill(colour, 255, 255, 150);
         h.stroke(colour, 255, 255);
         h.rect(0, 0, h.width, border); // Top
         h.rect(h.width - border, 0, border, h.height); // Right
@@ -44,7 +45,7 @@ public class Ronan
         h.rect(0, 0, border, h.height); // Left
     }
 
-
+    // draws circles around smaller prisms
     void drawCircle(float size, Heathens h)
     {
         h.noFill();
@@ -53,7 +54,7 @@ public class Ronan
         h.triangle(0, 0, 0, 0, 0, 0);
     }
 
-
+    // draws random circles in the back depending on the amplitude
     float drawRandom(float colour, Heathens h)
     {
         float x, y;
@@ -70,7 +71,7 @@ public class Ronan
         return loop;
     }
 
-  
+    // draws main prism shape in the middle of the screen spinning
     void drawPyramid(float t, float colour, Heathens h)
     { 
         // theres 3 vertexs for the 3 the 3 triangles on the prism
@@ -102,9 +103,10 @@ public class Ronan
         h.endShape();
     }
     
-
+    // main function that combines everything
     public void render(Heathens h)
     {
+        h.colorMode(HSB);
         h.background(0);
         float smoothedAmplitude = 0;
         float size = 0;
@@ -114,22 +116,25 @@ public class Ronan
        
         smoothedAmplitude = h.getSmoothedAmplitude() / 8;
 
+        // getting different colours
         size = Heathens.map(smoothedAmplitude, 0, 0.1f, 10, 50);
-        c = Heathens.map(smoothedAmplitude, 0, 0.07f, 0, 255);
-        c2 = Heathens.map(smoothedAmplitude, 0, 0.055f, 0, 255);
+        c = Heathens.map(smoothedAmplitude, 0, 0.055f, 0, 255);
+        c2 = Heathens.map(smoothedAmplitude, 0.08f, 0, 0, 255);
 
         speed = smoothedAmplitude * 1.6f;
         theta += speed;
 
-        drawBorder(smoothedAmplitude, c, h);
-        float end = drawRandom(c2, h);
+        drawBorder(smoothedAmplitude, c2, h);
+        float end = drawRandom(c, h);
 
         h.translate(h.width/2, h.height/2, 0);
         h.rotateX(theta);
         h.rotateY(theta);
 
+        // drawing big pramid in the middle
         drawPyramid(size * 2.4f, c2, h);
         
+        // drawing 4 smaller ones
         h.translate(150 * 1.8f, 150 * 1.8f);
         drawPyramid(size, c, h);
         drawCircle(size, h);
@@ -146,12 +151,14 @@ public class Ronan
         drawPyramid(size, c, h);
         drawCircle(size, h);
 
+        // if music just stops, continue a small spinning effect for visual appeal
         if (end == 0)
         {
             theta += 0.01f;
             speed = 0.01f;
         }
 
+        // drawing big cube
         drawCube(speed, h);
     }
 }
