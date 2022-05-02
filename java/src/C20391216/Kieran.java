@@ -1,9 +1,8 @@
 package C20391216;
 
 import ie.tudublin.Visual;
-import processing.core.PApplet;
 
-public class Kieran
+public class Kieran extends Visual
 {
     float ang = 0;
     int width;
@@ -35,6 +34,7 @@ public class Kieran
 
         // h.blendMode(Visual.ADD);
         h.background(0);
+        h.colorMode(HSB);
         h.noFill();
         h.stroke(200,200,200);
         for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
