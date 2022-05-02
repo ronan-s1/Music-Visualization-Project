@@ -25,6 +25,7 @@ We are all proud of the amount of effort and research we put into this assignmen
 In Ronan class we were able to have particles in the background along with rotating 3d objects which also change colour with the song which we are really prouf of because it goes really well with the music assosiatied with it.
 
 # Images from visualiser
-
+Image 1
 ![An image](images/Image1.png)
+Image 2
 ![Aman's section](images/Aman.jpg)
