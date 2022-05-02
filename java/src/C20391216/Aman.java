@@ -38,34 +38,13 @@ public class Aman extends Visual
         h.strokeWeight(10);
         for(float i = 0; i < TWO_PI; i += 0.01f)
         {
-            if(h.getAudioPlayer().position() < 160500)
-            {
-                float r = h.width/2.5f;
-                float x = r * cos(i);
-                float y = r * pow(sin(i), 3) * 0.5f;
-                //puts the eye in the center of the screen
-                h.vertex(x+halfW, y+halfH);
-            }
-            else
-            {
-                eyesClose = true;
-                h.stroke(0);
-                h.background(255);
-
-                float r = h.width/2.5f;
-                float x = r * cos(i);
-                float y = r * pow(sin(i), 3) * 0.05f;
-                //puts the eye in the center of the screen
-                h.vertex(x+halfW, y+halfH);
-            }
+            float r = h.width/2.5f;
+            float x = r * cos(i);
+            float y = r * pow(sin(i), 3) * 0.5f;
+            //puts the eye in the center of the screen
+            h.vertex(x+halfW, y+halfH);
         }
         h.endShape();
-        
-        //skip everything else when eye closes
-        if(eyesClose)
-        {
-            return;
-        }
 
         //create the iris
         h.strokeWeight(10);
