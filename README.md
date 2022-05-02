@@ -24,28 +24,9 @@ Each visualisation has its own class and they are all in the same packet. We inh
 # What I am most proud of in the assignment
 We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.
 
-# Markdown Tutorial
+In Ronan class we were able to have particles in the background along with rotating 3d objects which also change colour with the song which we are really prouf of because it goes really well with the music assosiatied with it.
 
-This is *emphasis*
 
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
 
 ```Java
 public void render()
