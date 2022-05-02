@@ -18,14 +18,13 @@ Student Number: C20391216
 # Instructions
 
 # How it works
-# What I am most proud of in the assignment
 
-We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.
+# What I am most proud of in the assignment
+We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.ssssss
 
 # Markdown Tutorial
 
 This is *emphasis*
-
 This is a bulleted list
 
 - Item
