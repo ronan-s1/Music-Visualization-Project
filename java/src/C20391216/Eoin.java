@@ -27,11 +27,9 @@ public class Eoin extends Visual
         h.colorMode(HSB);
         float halfH = h.height / 2;
         float average = 0;
-        float average2 = 0;
         float sum = 0;
         smoothedAmplitude = Visual.lerp(smoothedAmplitude, average, 0.1f);
-        float cx = h.width / 2;
-        float cy = h.height / 2;
+        
 
         
         for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)

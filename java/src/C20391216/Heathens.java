@@ -84,7 +84,7 @@ public class Heathens extends Visual {
     }
 
     Eoin Eoin = new Eoin(1920);
-    Kieran Kieran = new Kieran(getFrameSize());
+    Kieran Kieran = new Kieran(1920);
     Ronan Ronan = new Ronan();
     Aman Aman = new Aman();
 
