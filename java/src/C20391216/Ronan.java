@@ -61,6 +61,8 @@ public class Ronan
         float h2 = h.random(7);
         float loop = Heathens.floor(Heathens.map(h.getSmoothedAmplitude(), 0, 0.5f, 0, 10));
         h.stroke(colour, 255, 255);
+        
+        // looping through and drawing random circles
         for (int i = 0; i < loop; i++)
         {
             x = h.random(h.width);
