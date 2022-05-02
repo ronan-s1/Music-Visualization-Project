@@ -1,27 +1,26 @@
 # Music Visualiser Project
 
-| Name | Student Number |
-|-----------|-----------|
-|Ronan Singpurwala | C20391216 |
-|Keiran Retardo Silada | C20483514 |
-|Aman Song | C20325896 |
-|Eoin O'Toole Carrick | C20310571 |
+Name: Ronan Singpurwala
+
+Student Number: C20391216
+
+## Instructions
+- Fork this repository and use it a starter project for your assignment
+- Create a new package named your student number and put all your code in this package.
+- You should start by creating a subclass of ie.tudublin.Visual
+- There is an example visualiser called MyVisual in the example package
+- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
-In this assignment we have 4 visualisations using java processing. Each section was made by a different person in the group. Our visualisations respond to the amplitude of the music and frequency by changing colours, sizes of shapes and so on. To extract audio from an mp3 file, we used the audio minum library. 
 
 
 
 # Instructions
-- run the main.java file in the C20391216 folder.
-- space bar is to pause/unpause audio.
-- You can switch through the visualisations using the 1, 2, 3 and 4 keys.
-- Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
 
 # How it works
-Each visualisation has its own class and they are all in the same packet. We inherit the Visual class so we can use methods in that class in our visulations. We use inheritance and polymorphism to generate objects. 
-
 # What I am most proud of in the assignment
+
+We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.
 
 # Markdown Tutorial
 
@@ -84,5 +83,10 @@ This is a youtube video:
 
 This is a table:
 
-
+| Heading 1 | Heading 2 |
+|-----------|-----------|
+|Some stuff | Some more stuff in this column |
+|Some stuff | Some more stuff in this column |
+|Some stuff | Some more stuff in this column |
+|Some stuff | Some more stuff in this column |
 
