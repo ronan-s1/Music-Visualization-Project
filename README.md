@@ -32,4 +32,6 @@ Image 1
 Image 2
 
 ![Aman's section](images/Aman.jpg)
+
+Image 3
 ![image](images/Ronan.jpg)
