@@ -26,4 +26,4 @@ In Ronan class we were able to have particles in the background along with rotat
 
 # Images from visualiser
 
-
+![An image](images/Image1.png)
