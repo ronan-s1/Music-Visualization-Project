@@ -55,7 +55,7 @@ public class Heathens extends Visual {
 
             case '3':
             {
-                getAudioPlayer().cue(112000);
+                getAudioPlayer().cue(119000);
                 getAudioPlayer().play();
                 break;
             }
@@ -90,6 +90,20 @@ public class Heathens extends Visual {
 
     public void draw()
     {
+        //automate switching when the bass drops
+        if(getAudioPlayer().position() >= 64900)
+        {
+            mode = 2;
+        }
+        if(getAudioPlayer().position() >= 119000)
+        {
+            mode = 3;
+        }
+        if(getAudioPlayer().position() >= 162000)
+        {
+            mode = 4;
+        }
+
         switch(mode)
         {
             case 1: //Eoin SECTION 1
