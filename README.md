@@ -1,8 +1,11 @@
 # Music Visualiser Project
 
-Name: Ronan Singpurwala
-
-Student Number: C20391216
+| Name | Student Number |
+|-----------|-----------|
+|Ronan Singpurwala | C20391216 |
+|Keiran Retardo Silada | C20483514 |
+|Aman Song | C20325896 |
+|Eoin O'Toole Carrick | C20310571 |
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
@@ -80,10 +83,5 @@ This is a youtube video:
 
 This is a table:
 
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
+
 
