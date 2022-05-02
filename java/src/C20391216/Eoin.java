@@ -6,7 +6,6 @@ public class Eoin extends Visual
 {
     int width;
     float[] lerpedBuffer;
-    float[] lerpedBuffer2;
     float y;
     float angle = 0;
     float smoothedY;
@@ -21,17 +20,16 @@ public class Eoin extends Visual
         smoothedAmplitude = 0;
     }
 
-    
+    // this is method thats called in the heathens class to run my visualiser
     public void render(Heathens h)
     {
         h.colorMode(HSB);
         float halfH = h.height / 2;
         float average = 0;
         float sum = 0;
-        smoothedAmplitude = Visual.lerp(smoothedAmplitude, average, 0.1f);
-        
+        smoothedAmplitude = Visual.lerp(smoothedAmplitude, average, 0.1f);    
 
-        
+    
         for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
         {
             sum += Visual.abs(h.getAudioBuffer().get(i));
@@ -42,7 +40,8 @@ public class Eoin extends Visual
         sum = 0;
 
         h.background(0);
-         // For loop to loop through all of the visuals
+
+         //For loop to loop through all of the visuals
         for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
         {
             // These are to map through the colour specturm and change colours while visualising
