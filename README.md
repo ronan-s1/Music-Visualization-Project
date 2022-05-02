@@ -17,7 +17,7 @@ In this assignment we have 4 visualisations using java processing. Each section 
 - Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
 
 # How It Works
-Each visualisation has its own class and they are all in the same package. Heathens.java is the driver file for this project. We created 4 objects for the visualisation.
+Each visualisation has its own class and they are all in the same package. Heathens.java is the driver file for this project. We created 4 objects for the visualisation. We used inheritance to use methods like "calculateAverageAmplitude" from the Visual class. Using the minum we loaded in the heathens.mp3 which is done in the setup method.
 
 ```java
 Eoin Eoin = new Eoin(1920);
@@ -55,6 +55,8 @@ switch(mode)
     }
 }
 ```
+
+
 
 # What Are We Most Proud Of In The Assignment
 We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.
