@@ -66,9 +66,9 @@ public class Eoin
             h.noFill();
             h.stroke(c2, 255, 255);
             float fcircle = lerpedBuffer[i] * halfH * 4.0f;
-            h.circle(width/2,halfH,600 + fcircle);
+            h.circle(h.width/2,halfH,(h.width * 0.31f) + fcircle);
             h.stroke(c, 255, 255);
-            h.circle(width/2,halfH,200 + fcircle);
+            h.circle(h.width/2,halfH,h.width * 0.103f + fcircle);
             
             
         }

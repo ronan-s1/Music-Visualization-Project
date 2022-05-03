@@ -4,7 +4,7 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
-            "mainClass": "example.Main",
+            "mainClass": "C20391216.Main",
             "projectName": "java"
         },
         {
