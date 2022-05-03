@@ -25,12 +25,12 @@ public class Ronan
         e.rotateX(angle);
         e.rotateZ(angle);       
 
-        float boxSize = 27 + (120 * e.getSmoothedAmplitude());
+        float boxSize = 15 + (120 * e.getSmoothedAmplitude());
         e.box(boxSize);
 
         e.popMatrix();
 
-        angle += cubeSpeed * 0.4f;
+        angle += cubeSpeed * 0.5f;
     }
 
     // draws border
@@ -58,8 +58,8 @@ public class Ronan
     float drawRandom(float colour, Enemy e)
     {
         float x, y;
-        float h2 = e.random(7);
-        float loop = Enemy.floor(Enemy.map(e.getSmoothedAmplitude(), 0, 0.5f, 0, 11));
+        float h = e.random(5, 12);
+        float loop = Enemy.floor(Enemy.map(e.getSmoothedAmplitude(), 0, 0.5f, 0, 5));
         e.stroke(colour, 255, 255);
         
         // looping through and drawing random circles
@@ -67,7 +67,7 @@ public class Ronan
         {
             x = e.random(e.width);
             y = e.random(e.height);
-            e.circle(x, y, h2);
+            e.circle(x, y, h);
         }
 
         return loop;
