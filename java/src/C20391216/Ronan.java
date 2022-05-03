@@ -10,6 +10,12 @@ public class Ronan
     int mode = 1;
     float angle = 0;
     boolean paused = false;
+    float smoothedAmplitude = 0;
+    float size = 0;
+    float c = 0;
+    float c2 = 0;
+    float speed = 0;
+    float smallPyramidDist = 1.8f;
 
     // draws cube
     void drawCube(float cubeSpeed, Enemy e)
@@ -25,7 +31,7 @@ public class Ronan
         e.rotateX(angle);
         e.rotateZ(angle);       
 
-        float boxSize = 15 + (120 * e.getSmoothedAmplitude());
+        float boxSize = 20 + (120 * e.getSmoothedAmplitude());
         e.box(boxSize);
 
         e.popMatrix();
@@ -110,17 +116,10 @@ public class Ronan
     {
         e.colorMode(Visual.HSB);
         e.background(0);
-        float smoothedAmplitude = 0;
-        float size = 0;
-        float c = 0;
-        float c2 = 0;
-        float speed = 0;
-        float smallPyramidDist = 1.8f;
-       
         smoothedAmplitude = e.getSmoothedAmplitude() / 8;
 
         // getting different colours
-        size = Enemy.map(smoothedAmplitude, 0, 0.1f, 10, 50);
+        size = Enemy.map(smoothedAmplitude, 0, 0.1f, 10, 40);
         c = Enemy.map(smoothedAmplitude, 0, 0.055f, 0, 255);
         c2 = Enemy.map(smoothedAmplitude, 0.08f, 0, 0, 255);
         
