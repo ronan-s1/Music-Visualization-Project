@@ -58,6 +58,8 @@ switch(mode)
 
 
 
+
+
 # What Are We Most Proud Of In The Assignment
 We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.
 

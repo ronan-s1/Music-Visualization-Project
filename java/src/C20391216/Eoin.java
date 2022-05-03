@@ -44,6 +44,7 @@ public class Eoin
          //For loop to loop through all of the visuals
         for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
         {
+            h.stroke(1);
             // These are to map through the colour specturm and change colours while visualising
             float c = Visual.map(i, 0, h.getAudioBuffer().size(), 0, 255);
             float c2 = Visual.map(i, 0, h.getAudioBuffer().size(), 255, 0);
