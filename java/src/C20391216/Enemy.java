@@ -80,7 +80,7 @@ public class Enemy extends Visual {
         {
             mode = 2;
         }
-        if(getAudioPlayer().position() >= 92500 && getAudioPlayer().position() <= 92600)
+        if(getAudioPlayer().position() >= 92700 && getAudioPlayer().position() <= 92800)
         {
             mode = 3;
         }
