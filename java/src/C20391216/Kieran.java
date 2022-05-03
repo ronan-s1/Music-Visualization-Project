@@ -74,9 +74,9 @@ public class Kieran
         this.randCircles = new ArrayList<Circle>();
         for(int i = 0; i < amount; i++)
         {
-            float cx = e.random(0, e.width);
-            float cy = e.random(0, e.height);
-            float cz = e.random(-e.height/2, e.height/2); 
+            float cx = e.random(-e.width/2, e.width/2);
+            float cy = e.random(-e.height/2, e.height/2);
+            float cz = e.random(-e.height/2, e.height/2);
             Circle c = new Circle(cx, cy, cz);
             randCircles.add(c); 
         }
@@ -87,8 +87,8 @@ public class Kieran
     {
         for(Circle c:randCircles)
         {
-            float cx = e.random(0, e.width);
-            float cy = e.random(0, e.height);
+            float cx = e.random(-e.width/2, e.width/2);
+            float cy = e.random(-e.height/2, e.height/2);
             float cz = e.random(-e.height/2, e.height/2); 
             c.cx = cx;
             c.cy = cy;
@@ -101,7 +101,7 @@ public class Kieran
     {
         if(randCircles == null)
         {
-            generateCircles(e, 20);
+            generateCircles(e, 15);
         }
         // e.blendMode(Visual.DIFFERENCE);
         // e.fill(1, 1, 1, 255);
@@ -186,19 +186,22 @@ public class Kieran
         drawCircleVisualiser(e, 0 + spinning * 3, 0, 90 + spinning + smoothedAmplitude, 220, 1f, 15);
         drawCircleVisualiser(e, -(0 + spinning * 2), -45, -(180 + spinning + smoothedAmplitude), 260, 1f, 15);
         spinning += 1;
+        e.pushMatrix();
         for(Circle c:randCircles)
         {
             float color = Visual.map(randCircles.indexOf(c), 0, randCircles.size(), 0, 255);
             e.fill(color, 255, 255);
             e.stroke(color, 255, 255);
-            c.render(e);
-
+            c.render(e, spinning * smoothedAmplitude);
         }
-        if(e.frameCount % (smoothedAmplitude * 10) < 1)
+        // e.translate(e.width/2, e.height/2, 0);
+        // e.rotateZ(Visual.radians(spinning * 10));
+
+        if(e.frameCount % (10 + ((1/smoothedAmplitude) * 40)) < 2)
         {
             randomiseCircles(e);
         }
-        
+        e.popMatrix();
     }
 }    
 

@@ -6,8 +6,8 @@ public class Enemy extends Visual {
 
     public void settings()
     {
+        size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
-        fullScreen(P3D, SPAN);
     }
 
     int mode = 1;
@@ -41,7 +41,7 @@ public class Enemy extends Visual {
 
             case '1':
             {
-                //getAudioPlayer().cue(0);
+                getAudioPlayer().cue(120000);
                 getAudioPlayer().play();
                 break;
             }
@@ -85,7 +85,7 @@ public class Enemy extends Visual {
         {
             mode = 3;
         }
-        if(getAudioPlayer().position() >= 129800 && getAudioPlayer().position() <= 129900)
+        if(getAudioPlayer().position() >= 129900 && getAudioPlayer().position() <= 130000)
         {
             mode = 4;
         }
