@@ -17,14 +17,14 @@ public class Enemy extends Visual {
     {
         if (key >= '0' && key <= '4')
         {
-		mode = key - '0';
-	}
+		    mode = key - '0';
+	    }
 
-        switch(key)
+        switch (key)
         {
             case ' ':
             {
-                if(paused)
+                if (paused)
                 {
                     getAudioPlayer().play();
                     paused = false;
@@ -35,6 +35,7 @@ public class Enemy extends Visual {
                     getAudioPlayer().pause();
                     paused = true;
                 }
+
                 break;
             }
 
@@ -45,26 +46,9 @@ public class Enemy extends Visual {
                 break;
             }
 
-            case '2':
+            case 'r':
             {
-                //getAudioPlayer().cue(55700);
-                getAudioPlayer().play();
-                
-                break;
-            }
-
-            case '3':
-            {
-                //getAudioPlayer().cue(92500);
-                getAudioPlayer().play();
-                break;
-            }
-
-            case '4':
-            {
-                //getAudioPlayer().cue(129800);
-                getAudioPlayer().play();
-                break;
+                getAudioPlayer().cue(0);
             }
         }
     }
@@ -90,16 +74,20 @@ public class Enemy extends Visual {
 
     public void draw()
     {
+        getAudioPlayer().play();
+        
         //automate switching when the bass drops
         if(getAudioPlayer().position() >= 55700 && getAudioPlayer().position() <= 55800)
         {
             mode = 2;
         }
-        if(getAudioPlayer().position() >= 92500 && getAudioPlayer().position() >= 92600)
+
+        if(getAudioPlayer().position() >= 92500 && getAudioPlayer().position() <= 92600)
         {
             mode = 3;
         }
-        if(getAudioPlayer().position() >= 129800 && getAudioPlayer().position() >= 129900)
+
+        if(getAudioPlayer().position() >= 129800 && getAudioPlayer().position() <= 129900)
         {
             mode = 4;
         }

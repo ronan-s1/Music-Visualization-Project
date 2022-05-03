@@ -131,7 +131,6 @@ public class Ronan
         drawBorder(smoothedAmplitude, c2, e);
         float end = drawRandom(c, e);
         
-        
         // positioning big triangle to center of the screen and making it spin
         e.translate(e.width/2, e.height/2, 0);
         e.rotateX(theta);
