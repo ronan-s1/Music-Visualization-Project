@@ -32,19 +32,29 @@ public class Aman extends Visual
         float colour = smoothedAmplitude * 1500;
         h.background(colour,0,0);
 
-        //create an eye shape using this code
-        h.stroke(255,0,0);
+        //drawing the ring inside the eye
+        h.noFill();
         h.beginShape();
-        h.strokeWeight(10);
         for(float i = 0; i < TWO_PI; i += 0.01f)
         {
-            float r = h.width/2.5f;
-            float x = r * cos(i);
-            float y = r * pow(sin(i), 3) * 0.5f;
+            h.stroke(0);
+            h.strokeWeight(15);
+            float r1 = h.width/2.5f;
+            float x1 = r1 * cos(i);
+            float y1 = r1 * pow(sin(i), 3) * 0.5f;
             //puts the eye in the center of the screen
+            h.vertex(x1+halfW, y1+halfH);
+        
+            h.stroke(139, 0, 0);
+            h.strokeWeight(5);
+            //make the ring go crazy and randomly but still on sync to music
+            float r = h.width/9 + (smoothedAmplitude * h.random(10,150) * 2);
+            float x = r * cos(i);
+            float y = r * sin(i);
+            //center the ring
             h.vertex(x+halfW, y+halfH);
         }
-        h.endShape();
+        h.endShape(CLOSE);
 
         //create the iris
         h.strokeWeight(10);
@@ -64,21 +74,6 @@ public class Aman extends Visual
             h.circle(halfW, halfH, h.getSmoothedAmplitude());
         }
 
-        //drawing the ring inside the eye
-        h.noFill();
-        h.beginShape();
-        h.stroke(139, 0, 0);
-        h.strokeWeight(5);
-        for(float i = 0; i < TWO_PI; i += 0.01f)
-        {
-            //make the ring go crazy and randomly but still on sync to music
-            float r = h.width/9 + (smoothedAmplitude * h.random(10,150));
-            float x = r * cos(i);
-            float y = r * sin(i);
-            //center the ring
-            h.vertex(x+halfW, y+halfH);
-        }
-        h.endShape(CLOSE);
 
         //drawing the "tomoe"
         h.fill(0);
