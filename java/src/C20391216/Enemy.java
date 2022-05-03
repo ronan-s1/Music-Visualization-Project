@@ -47,7 +47,7 @@ public class Enemy extends Visual {
 
             case '2':
             {
-                //getAudioPlayer().cue(55700);
+                getAudioPlayer().cue(55700);
                 getAudioPlayer().play();
                 
                 break;
@@ -95,11 +95,11 @@ public class Enemy extends Visual {
         {
             mode = 2;
         }
-        if(getAudioPlayer().position() >= 92500 && getAudioPlayer().position() >= 92600)
+        if(getAudioPlayer().position() >= 92500 && getAudioPlayer().position() <= 92600)
         {
             mode = 3;
         }
-        if(getAudioPlayer().position() >= 129800 && getAudioPlayer().position() >= 129900)
+        if(getAudioPlayer().position() >= 129800 && getAudioPlayer().position() <= 129900)
         {
             mode = 4;
         }
