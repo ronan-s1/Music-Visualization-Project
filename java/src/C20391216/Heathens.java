@@ -47,7 +47,7 @@ public class Heathens extends Visual {
 
             case '2':
             {
-                getAudioPlayer().cue(64900);
+                getAudioPlayer().cue(55700);
                 getAudioPlayer().play();
                 
                 break;
@@ -55,14 +55,14 @@ public class Heathens extends Visual {
 
             case '3':
             {
-                getAudioPlayer().cue(119000);
+                getAudioPlayer().cue(92500);
                 getAudioPlayer().play();
                 break;
             }
 
             case '4':
             {
-                getAudioPlayer().cue(162000);
+                getAudioPlayer().cue(129800);
                 getAudioPlayer().play();
                 break;
             }
@@ -78,9 +78,9 @@ public class Heathens extends Visual {
         frameRate(60);
 
         startMinim();
-        loadAudio("heathens.mp3");
+        loadAudio("enemy.mp3");
 
-        getAudioPlayer().setGain(-20);
+        getAudioPlayer().setGain(0);
     }
 
     Eoin Eoin = new Eoin(1920);
@@ -91,18 +91,18 @@ public class Heathens extends Visual {
     public void draw()
     {
         //automate switching when the bass drops
-        if(getAudioPlayer().position() >= 64900)
-        {
-            mode = 2;
-        }
-        if(getAudioPlayer().position() >= 119000)
-        {
-            mode = 3;
-        }
-        if(getAudioPlayer().position() >= 162000)
-        {
-            mode = 4;
-        }
+        // if(getAudioPlayer().position() >= 64900)
+        // {
+        //     mode = 2;
+        // }
+        // if(getAudioPlayer().position() >= 119000)
+        // {
+        //     mode = 3;
+        // }
+        // if(getAudioPlayer().position() >= 162000)
+        // {
+        //     mode = 4;
+        // }
 
         switch(mode)
         {
