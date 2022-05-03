@@ -10,9 +10,8 @@ public class Enemy extends Visual {
         println("CWD: " + System.getProperty("user.dir"));
     }
 
-    int mode = 'e';
+    int mode = 1;
     boolean paused = false;
-    boolean auto = true;
 
     public void keyPressed()
     {
@@ -39,31 +38,31 @@ public class Enemy extends Visual {
                 break;
             }
 
-            case 'e':
+            case '1':
             {
-                getAudioPlayer().cue(0);
+                //getAudioPlayer().cue(0);
                 getAudioPlayer().play();
                 break;
             }
 
-            case 'k':
+            case '2':
             {
-                getAudioPlayer().cue(55700);
+                //getAudioPlayer().cue(55700);
                 getAudioPlayer().play();
                 
                 break;
             }
 
-            case 'a':
+            case '3':
             {
-                getAudioPlayer().cue(92500);
+                //getAudioPlayer().cue(92500);
                 getAudioPlayer().play();
                 break;
             }
 
-            case 'r':
+            case '4':
             {
-                getAudioPlayer().cue(129800);
+                //getAudioPlayer().cue(129800);
                 getAudioPlayer().play();
                 break;
             }
@@ -92,40 +91,40 @@ public class Enemy extends Visual {
     public void draw()
     {
         //automate switching when the bass drops
-        // if(getAudioPlayer().position() >= 55700)
-        // {
-        //     mode = 'k';
-        // }
-        // if(getAudioPlayer().position() >= 92500)
-        // {
-        //     mode = 'a';
-        // }
-        // if(getAudioPlayer().position() >= 129800)
-        // {
-        //     mode = 'r';
-        // }
+        if(getAudioPlayer().position() >= 55700 && getAudioPlayer().position() <= 55800)
+        {
+            mode = 2;
+        }
+        if(getAudioPlayer().position() >= 92500 && getAudioPlayer().position() >= 92600)
+        {
+            mode = 3;
+        }
+        if(getAudioPlayer().position() >= 129800 && getAudioPlayer().position() >= 129900)
+        {
+            mode = 4;
+        }
 
         switch(mode)
         {
-            case 'e': //Eoin SECTION 1
+            case 1: //Eoin SECTION 1
             {
                 Eoin.render(this);
                 break;
             }
             
-            case 'k': //Kieran SECTION 2
+            case 2: //Kieran SECTION 2
             {
                 Kieran.render(this);
                 break;
             }
 
-            case 'a': //Aman SECTION 3
+            case 3: //Aman SECTION 3
             {
                 Aman.render(this);
                 break;
             }
 
-            case 'r': //Ronan SECTION 4
+            case 4: //Ronan SECTION 4
             {
                 Ronan.render(this);
                 break;
