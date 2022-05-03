@@ -25,13 +25,13 @@ public class Circle {
         // e.popMatrix();
         e.pushMatrix();
         e.translate(e.width/2, e.height/2, 0);
-        //e.rotateX(Visual.radians(angle));
-        e.rotateY(Visual.radians(angle));
-        e.rotateZ(Visual.radians(angle * 2));
+        e.rotateX(Visual.radians(angle));
+        e.rotateY(Visual.radians(angle * 5));
+        e.rotateZ(Visual.radians(angle * 5));
         e.translate(cx, cy, cz);
         e.sphere(5 * e.getSmoothedAmplitude());
         e.popMatrix();
-        angle += (spinning) * 0.001f ;
+        angle += (spinning) * 1.6f ;
 
     }
 }

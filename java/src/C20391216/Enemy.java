@@ -11,11 +11,11 @@ public class Enemy extends Visual {
     }
 
     int mode = 1;
-    boolean paused = false;
+    boolean paused = true;
 
     public void keyPressed()
     {
-        if (key >= '0' && key <= '4')
+        if (key >= '0' && key <= '5')
         {
 		    mode = key - '0';
 	    }
@@ -41,7 +41,6 @@ public class Enemy extends Visual {
 
             case '1':
             {
-                getAudioPlayer().cue(120000);
                 getAudioPlayer().play();
                 break;
             }
@@ -49,6 +48,7 @@ public class Enemy extends Visual {
             case 'r':
             {
                 getAudioPlayer().cue(0);
+                getAudioPlayer().play();
             }
         }
     }
@@ -64,18 +64,17 @@ public class Enemy extends Visual {
         startMinim();
         loadAudio("enemy.mp3");
 
-        getAudioPlayer().setGain(0);
+        getAudioPlayer().setGain(-25);
     }
 
     Eoin Eoin = new Eoin(1920);
     Kieran Kieran = new Kieran(1024);
     Ronan Ronan = new Ronan();
     Aman Aman = new Aman();
+    Combined Combined = new Combined(1024);
 
     public void draw()
-    {
-        getAudioPlayer().play();
-        
+    {    
         //automate switching when the bass drops
         if(getAudioPlayer().position() >= 55700 && getAudioPlayer().position() <= 55800)
         {
@@ -88,6 +87,11 @@ public class Enemy extends Visual {
         if(getAudioPlayer().position() >= 129900 && getAudioPlayer().position() <= 130000)
         {
             mode = 4;
+        }
+
+        if(getAudioPlayer().position() >= 154900 && getAudioPlayer().position() <= 155000)
+        {
+            mode = 5;
         }
 
         switch(mode)
@@ -113,6 +117,12 @@ public class Enemy extends Visual {
             case 4: //Ronan SECTION 4
             {
                 Ronan.render(this);
+                break;
+            }
+
+            case 5:
+            {
+                Combined.render(this);
                 break;
             }
         }
