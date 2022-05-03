@@ -26,72 +26,72 @@ public class Kieran
     //     return result;
     // }
  
-    public void render(Heathens h)
+    public void render(Enemy e)
     {
-        // h.blendMode(Visual.DIFFERENCE);
-        // h.fill(1, 1, 1, 255);
-        // h.rect(0, 0, h.width, h.height);
+        // e.blendMode(Visual.DIFFERENCE);
+        // e.fill(1, 1, 1, 255);
+        // e.rect(0, 0, e.width, e.height);
 
-        // h.blendMode(Visual.ADD);
-        h.background(0);
-        h.colorMode(Visual.HSB);
-        h.noFill();
-        h.stroke(200,200,200);
-        for(int i = 0 ; i < h.getAudioBuffer().size() ; i ++)
+        // e.blendMode(Visual.ADD);
+        e.background(0);
+        e.colorMode(Visual.HSB);
+        e.noFill();
+        e.stroke(200,200,200);
+        for(int i = 0 ; i < e.getAudioBuffer().size() ; i ++)
         {
-            lerpBuff[i] = Visual.lerp(lerpBuff[i], h.getAudioBuffer().get(i), 0.05f);
+            lerpBuff[i] = Visual.lerp(lerpBuff[i], e.getAudioBuffer().get(i), 0.05f);
         }
-        // h.ellipse(200, 300, 100, 100);
-        h.pushMatrix();
+        // e.ellipse(200, 300, 100, 100);
+        e.pushMatrix();
         
-        // h.translate(h.width/2, h.height/2);
-        // h.rotateX(0.1f);
-        // h.rotateY(0.5f);
-        // h.rotateZ(1.0f);
+        // e.translate(e.width/2, e.height/2);
+        // e.rotateX(0.1f);
+        // e.rotateY(0.5f);
+        // e.rotateZ(1.0f);
         
 
-        h.translate(h.width/2, h.height/2, 0);
-        h.calculateAverageAmplitude();
-        smoothedAmplitude = h.getSmoothedAmplitude();
+        e.translate(e.width/2, e.height/2, 0);
+        e.calculateAverageAmplitude();
+        smoothedAmplitude = e.getSmoothedAmplitude();
         //swing = Visual.lerp(swing,Visual.map(smoothedAmplitude, 0, 1, -3, 3), 0.1f);
-        swing = Visual.lerp(swing, Visual.map(h.random(0f, 1.0f), 0, 1, -3, 3), 0.02f);
-        h.rotateZ(swing);
-        h.rotateX(swing/2);
-        h.rotateY(swing2/4);
+        swing = Visual.lerp(swing, Visual.map(e.random(0f, 1.0f), 0, 1, -3, 3), 0.02f);
+        e.rotateZ(swing);
+        e.rotateX(swing/2);
+        e.rotateY(swing2/4);
         swing2 += smoothedAmplitude;
-        h.fill(color2,255,255);
-        h.noStroke();
+        e.fill(color2,255,255);
+        e.noStroke();
         color2 += smoothedAmplitude * 10;
         if(color2 > 255)
         {
             color2 = 0;
         }
-        h.sphere(smoothedAmplitude * 250);
-        //h.rotateX(Visual.radians(90));
-        h.beginShape();
+        e.sphere(smoothedAmplitude * 250);
+        //e.rotateX(Visual.radians(90));
+        e.beginShape();
         int i = 0;
-        h.noFill();
+        e.noFill();
         for(float deg = 0; deg <= 360; deg += 30)
         {
-            i = Visual.floor(Visual.map(deg, 0, 360, 0, h.getAudioBuffer().size() - 1));
-            color = Visual.map(i, 0, h.getAudioBuffer().size() - 1, 0, 255);
-            h.stroke(color, 200, 200);
-            h.strokeWeight(10);
-            x = (smoothedAmplitude * h.width) * Visual.sin(Visual.radians(deg));
-            z = (smoothedAmplitude * h.width) * Visual.cos(Visual.radians(deg));
+            i = Visual.floor(Visual.map(deg, 0, 360, 0, e.getAudioBuffer().size() - 1));
+            color = Visual.map(i, 0, e.getAudioBuffer().size() - 1, 0, 255);
+            e.stroke(color, 200, 200);
+            e.strokeWeight(10);
+            x = (smoothedAmplitude * e.width) * Visual.sin(Visual.radians(deg));
+            z = (smoothedAmplitude * e.width) * Visual.cos(Visual.radians(deg));
             if(deg == 360 || deg == 0)
             {
-                h.curveVertex(x,lerpBuff[0] * (h.height / 2) * 1.5f ,z);
-                h.curveVertex(x,lerpBuff[0] * (h.height / 2) * 1.5f ,z);
+                e.curveVertex(x,lerpBuff[0] * (e.height / 2) * 1.5f ,z);
+                e.curveVertex(x,lerpBuff[0] * (e.height / 2) * 1.5f ,z);
             }
             else
             {
-                h.curveVertex(x,lerpBuff[i] * (h.height / 2) * 2.0f ,z);
+                e.curveVertex(x,lerpBuff[i] * (e.height / 2) * 2.0f ,z);
             }
-            //h.curveVertex(x,0,z);
+            //e.curveVertex(x,0,z);
         }
-        h.endShape();
-        h.popMatrix();
+        e.endShape();
+        e.popMatrix();
     }
 }    
 

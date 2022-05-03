@@ -2,7 +2,7 @@ package C20391216;
 
 import ie.tudublin.Visual;
 
-public class Heathens extends Visual {
+public class Enemy extends Visual {
 
     public void settings()
     {
@@ -10,8 +10,9 @@ public class Heathens extends Visual {
         println("CWD: " + System.getProperty("user.dir"));
     }
 
-    int mode = 1;
+    int mode = 'e';
     boolean paused = false;
+    boolean auto = true;
 
     public void keyPressed()
     {
@@ -38,14 +39,14 @@ public class Heathens extends Visual {
                 break;
             }
 
-            case '1':
+            case 'e':
             {
                 getAudioPlayer().cue(0);
                 getAudioPlayer().play();
                 break;
             }
 
-            case '2':
+            case 'k':
             {
                 getAudioPlayer().cue(55700);
                 getAudioPlayer().play();
@@ -53,14 +54,14 @@ public class Heathens extends Visual {
                 break;
             }
 
-            case '3':
+            case 'a':
             {
                 getAudioPlayer().cue(92500);
                 getAudioPlayer().play();
                 break;
             }
 
-            case '4':
+            case 'r':
             {
                 getAudioPlayer().cue(129800);
                 getAudioPlayer().play();
@@ -91,40 +92,40 @@ public class Heathens extends Visual {
     public void draw()
     {
         //automate switching when the bass drops
-        // if(getAudioPlayer().position() >= 64900)
+        // if(getAudioPlayer().position() >= 55700)
         // {
-        //     mode = 2;
+        //     mode = 'k';
         // }
-        // if(getAudioPlayer().position() >= 119000)
+        // if(getAudioPlayer().position() >= 92500)
         // {
-        //     mode = 3;
+        //     mode = 'a';
         // }
-        // if(getAudioPlayer().position() >= 162000)
+        // if(getAudioPlayer().position() >= 129800)
         // {
-        //     mode = 4;
+        //     mode = 'r';
         // }
 
         switch(mode)
         {
-            case 1: //Eoin SECTION 1
+            case 'e': //Eoin SECTION 1
             {
                 Eoin.render(this);
                 break;
             }
             
-            case 2: //Kieran SECTION 2
+            case 'k': //Kieran SECTION 2
             {
                 Kieran.render(this);
                 break;
             }
 
-            case 3: //Aman SECTION 3
+            case 'a': //Aman SECTION 3
             {
                 Aman.render(this);
                 break;
             }
 
-            case 4: //Ronan SECTION 4
+            case 'r': //Ronan SECTION 4
             {
                 Ronan.render(this);
                 break;

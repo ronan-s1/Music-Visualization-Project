@@ -17,7 +17,7 @@ In this assignment we have 4 visualisations using java processing. Each section 
 - Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
 
 # How It Works
-Each visualisation has its own class and they are all in the same package. Heathens.java is the driver file for this project. We created 4 objects for the visualisation. We used inheritance to use methods like "calculateAverageAmplitude" from the Visual class. Using the minum we loaded in the heathens.mp3 which is done in the setup method.
+Each visualisation has its own class and they are all in the same package. Enemy.java is the driver file for this project. We created 4 objects for the visualisation. We used inheritance to use methods like "calculateAverageAmplitude" from the Visual class. Using the minum we loaded in the Enemy.mp3 which is done in the setup method.
 
 ```java
 Eoin Eoin = new Eoin(1920);

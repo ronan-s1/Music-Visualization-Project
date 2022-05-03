@@ -12,149 +12,149 @@ public class Ronan
     boolean paused = false;
 
     // draws cube
-    void drawCube(float cubeSpeed, Heathens h)
+    void drawCube(float cubeSpeed, Enemy e)
     {
-        h.calculateAverageAmplitude();
-        h.stroke(Heathens.map(h.getSmoothedAmplitude(), 0, 0.6f, 0, 255), 255, 255);
-        h.strokeWeight(5);
+        e.calculateAverageAmplitude();
+        e.stroke(Enemy.map(e.getSmoothedAmplitude(), 0, 0.6f, 0, 255), 255, 255);
+        e.strokeWeight(5);
 
-        h.pushMatrix();
+        e.pushMatrix();
 
-        h.camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
-        h.translate(0, 0, -200);
-        h.rotateX(angle);
-        h.rotateZ(angle);       
+        e.camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
+        e.translate(0, 0, -200);
+        e.rotateX(angle);
+        e.rotateZ(angle);       
 
-        float boxSize = 30 + (125 * h.getSmoothedAmplitude());
-        h.box(boxSize);
+        float boxSize = 30 + (125 * e.getSmoothedAmplitude());
+        e.box(boxSize);
 
-        h.popMatrix();
+        e.popMatrix();
 
         angle += cubeSpeed * 0.4f;
     }
 
     // draws border
-    void drawBorder(float smoothedAmplitude, float colour, Heathens h)
+    void drawBorder(float smoothedAmplitude, float colour, Enemy e)
     {
-        float border = Heathens.map(smoothedAmplitude, 0, 0.15f, 3, 70);
-        h.fill(colour, 255, 255, 150);
-        h.stroke(colour, 255, 255);
-        h.rect(0, 0, h.width, border); // Top
-        h.rect(h.width - border, 0, border, h.height); // Right
-        h.rect(0, h.height - border, h.width, border); // Bottom
-        h.rect(0, 0, border, h.height); // Left
+        float border = Enemy.map(smoothedAmplitude, 0, 0.15f, 3, 70);
+        e.fill(colour, 255, 255, 150);
+        e.stroke(colour, 255, 255);
+        e.rect(0, 0, e.width, border); // Top
+        e.rect(e.width - border, 0, border, e.height); // Right
+        e.rect(0, e.height - border, e.width, border); // Bottom
+        e.rect(0, 0, border, e.height); // Left
     }
 
     // draws circles around smaller prisms
-    void drawCircle(float size, Heathens h)
+    void drawCircle(float size, Enemy e)
     {
-        h.noFill();
-        h.lights();
-        h.circle(0, 0, size + 30);
-        h.triangle(0, 0, 0, 0, 0, 0);
+        e.noFill();
+        e.lights();
+        e.circle(0, 0, size + 30);
+        e.triangle(0, 0, 0, 0, 0, 0);
     }
 
     // draws random circles in the back depending on the amplitude
-    float drawRandom(float colour, Heathens h)
+    float drawRandom(float colour, Enemy e)
     {
         float x, y;
-        float h2 = h.random(7);
-        float loop = Heathens.floor(Heathens.map(h.getSmoothedAmplitude(), 0, 0.5f, 0, 10));
-        h.stroke(colour, 255, 255);
+        float h2 = e.random(7);
+        float loop = Enemy.floor(Enemy.map(e.getSmoothedAmplitude(), 0, 0.5f, 0, 10));
+        e.stroke(colour, 255, 255);
         
         // looping through and drawing random circles
         for (int i = 0; i < loop; i++)
         {
-            x = h.random(h.width);
-            y = h.random(h.height);
-            h.circle(x, y, h2);
+            x = e.random(e.width);
+            y = e.random(e.height);
+            e.circle(x, y, h2);
         }
 
         return loop;
     }
 
     // draws main prism shape in the middle of the screen spinning
-    void drawPyramid(float t, float colour, Heathens h)
+    void drawPyramid(float t, float colour, Enemy e)
     { 
         // theres 3 vertexs for the 3 the 3 triangles on the prism
         // T is the size of the shape
-        h.beginShape(PConstants.TRIANGLES);
-        h.stroke(colour, 255, 255);
+        e.beginShape(PConstants.TRIANGLES);
+        e.stroke(colour, 255, 255);
         
         // colour changes depending on the amplitude
-        h.fill(colour, 255, 255, 150);
-        h.vertex(-t, -t, -t);
-        h.vertex( t, -t, -t);
-        h.vertex( 0, 0, t);
+        e.fill(colour, 255, 255, 150);
+        e.vertex(-t, -t, -t);
+        e.vertex( t, -t, -t);
+        e.vertex( 0, 0, t);
       
-        h.fill(colour, 255, 255, 150);
-        h.vertex( t, -t, -t);
-        h.vertex( t, t, -t);
-        h.vertex( 0, 0, t);
+        e.fill(colour, 255, 255, 150);
+        e.vertex( t, -t, -t);
+        e.vertex( t, t, -t);
+        e.vertex( 0, 0, t);
       
-        h.fill(colour, 255, 255, 150);
-        h.vertex( t, t, -t);
-        h.vertex(-t, t, -t);
-        h.vertex( 0, 0, t);
+        e.fill(colour, 255, 255, 150);
+        e.vertex( t, t, -t);
+        e.vertex(-t, t, -t);
+        e.vertex( 0, 0, t);
       
-        h.fill(colour, 255, 255, 150);
-        h.vertex(-t, t, -t);
-        h.vertex(-t, -t, -t); 
-        h.vertex( 0, 0, t);
+        e.fill(colour, 255, 255, 150);
+        e.vertex(-t, t, -t);
+        e.vertex(-t, -t, -t); 
+        e.vertex( 0, 0, t);
     
-        h.endShape();
+        e.endShape();
     }
     
     // main function that combines everything
-    public void render(Heathens h)
+    public void render(Enemy e)
     {
-        h.colorMode(Visual.HSB);
-        h.background(0);
+        e.colorMode(Visual.HSB);
+        e.background(0);
         float smoothedAmplitude = 0;
         float size = 0;
         float c = 0;
         float c2 = 0;
         float speed = 0;
        
-        smoothedAmplitude = h.getSmoothedAmplitude() / 8;
+        smoothedAmplitude = e.getSmoothedAmplitude() / 8;
 
         // getting different colours
-        size = Heathens.map(smoothedAmplitude, 0, 0.1f, 10, 50);
-        c = Heathens.map(smoothedAmplitude, 0, 0.055f, 0, 255);
-        c2 = Heathens.map(smoothedAmplitude, 0.08f, 0, 0, 255);
+        size = Enemy.map(smoothedAmplitude, 0, 0.1f, 10, 50);
+        c = Enemy.map(smoothedAmplitude, 0, 0.055f, 0, 255);
+        c2 = Enemy.map(smoothedAmplitude, 0.08f, 0, 0, 255);
         
         // chnaging speed with amplitude      
         speed = smoothedAmplitude * 1.6f;
         theta += speed;
 
-        drawBorder(smoothedAmplitude, c2, h);
-        float end = drawRandom(c, h);
+        drawBorder(smoothedAmplitude, c2, e);
+        float end = drawRandom(c, e);
         
         
         // positioning big triangle to center of the screen and making it spin
-        h.translate(h.width/2, h.height/2, 0);
-        h.rotateX(theta);
-        h.rotateY(theta);
+        e.translate(e.width/2, e.height/2, 0);
+        e.rotateX(theta);
+        e.rotateY(theta);
 
         // drawing big pramid in the middle
-        drawPyramid(size * 2.4f, c2, h);
+        drawPyramid(size * 2.4f, c2, e);
         
         // drawing 4 smaller ones
-        h.translate(150 * 1.8f, 150 * 1.8f);
-        drawPyramid(size, c, h);
-        drawCircle(size, h);
+        e.translate(150 * 1.8f, 150 * 1.8f);
+        drawPyramid(size, c, e);
+        drawCircle(size, e);
 
-        h.translate(-300 * 1.8f, -300 * 1.8f);
-        drawPyramid(size, c, h);
-        drawCircle(size, h);
+        e.translate(-300 * 1.8f, -300 * 1.8f);
+        drawPyramid(size, c, e);
+        drawCircle(size, e);
 
-        h.translate(300 * 1.8f, 0);
-        drawPyramid(size, c, h);
-        drawCircle(size, h);
+        e.translate(300 * 1.8f, 0);
+        drawPyramid(size, c, e);
+        drawCircle(size, e);
 
-        h.translate(-300 * 1.8f, 300 * 1.8f);
-        drawPyramid(size, c, h);
-        drawCircle(size, h);
+        e.translate(-300 * 1.8f, 300 * 1.8f);
+        drawPyramid(size, c, e);
+        drawCircle(size, e);
 
         // if music just stops, continue a small spinning effect for visual appeal
         if (end == 0)
@@ -164,6 +164,6 @@ public class Ronan
         }
 
         // drawing big cube
-        drawCube(speed, h);
+        drawCube(speed, e);
     }
 }
