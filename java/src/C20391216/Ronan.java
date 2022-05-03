@@ -25,7 +25,7 @@ public class Ronan
         e.rotateX(angle);
         e.rotateZ(angle);       
 
-        float boxSize = 30 + (125 * e.getSmoothedAmplitude());
+        float boxSize = 27 + (120 * e.getSmoothedAmplitude());
         e.box(boxSize);
 
         e.popMatrix();
@@ -59,7 +59,7 @@ public class Ronan
     {
         float x, y;
         float h2 = e.random(7);
-        float loop = Enemy.floor(Enemy.map(e.getSmoothedAmplitude(), 0, 0.5f, 0, 10));
+        float loop = Enemy.floor(Enemy.map(e.getSmoothedAmplitude(), 0, 0.5f, 0, 11));
         e.stroke(colour, 255, 255);
         
         // looping through and drawing random circles
@@ -115,6 +115,7 @@ public class Ronan
         float c = 0;
         float c2 = 0;
         float speed = 0;
+        float smallPyramidDist = 1.8f;
        
         smoothedAmplitude = e.getSmoothedAmplitude() / 8;
 
@@ -137,22 +138,22 @@ public class Ronan
         e.rotateY(theta);
 
         // drawing big pramid in the middle
-        drawPyramid(size * 2.4f, c2, e);
+        drawPyramid(size * 2.5f, c2, e);
         
         // drawing 4 smaller ones
-        e.translate(150 * 1.8f, 150 * 1.8f);
+        e.translate(150 * smallPyramidDist, 150 * smallPyramidDist);
         drawPyramid(size, c, e);
         drawCircle(size, e);
 
-        e.translate(-300 * 1.8f, -300 * 1.8f);
+        e.translate(-300 * smallPyramidDist, -300 * smallPyramidDist);
         drawPyramid(size, c, e);
         drawCircle(size, e);
 
-        e.translate(300 * 1.8f, 0);
+        e.translate(300 * smallPyramidDist, 0);
         drawPyramid(size, c, e);
         drawCircle(size, e);
 
-        e.translate(-300 * 1.8f, 300 * 1.8f);
+        e.translate(-300 * smallPyramidDist, 300 * smallPyramidDist);
         drawPyramid(size, c, e);
         drawCircle(size, e);
 
