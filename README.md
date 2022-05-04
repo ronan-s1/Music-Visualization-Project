@@ -68,7 +68,7 @@ My visualisation uses circles and rectangles as a border to almost simulate 3D w
 ### Section 2 Kieran
 My visualisation is a group of 3D ring visualisers that spin and rotate around a circle in the middle almost like the planet Saturn. Random spheres also rotate around the middle which blip in and out depending on the amplitude of the song. My class also uses a lerped buffer in order to map the visualiser. The ring is drawn along the z and x-axis using sin and cos functions with its height being dictated depending on the value in the lerped buffer. The rotation of the rings is based on the amplitude of the song and some custom values with the colors being mapped as the ring is drawn in a for loop. The circle becomes bigger with the amplitude along with the color changing with it. 
 
-![Kieran's visual](images/kieran.jpg)
+![Kieran's visual](images/kieran.png)
 
 ### Section 3 Aman
 My visualisation comprises of an eye shape made using begin shape and math stuff like sin and cos. The center iris dilates with the songs amplitude. The three tomoes also increase in size by amplitude slightly but mainly revolves around the iris, speeding up as the amplitude increases. The background is mainly red and its intensity increases too by amplitude. 
