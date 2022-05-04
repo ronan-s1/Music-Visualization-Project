@@ -1,5 +1,13 @@
 {
     "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "example.Main",
+            "projectName": "java"
+        },
         {
             "type": "java",
             "name": "Launch Main",
