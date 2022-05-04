@@ -3,12 +3,12 @@
 | Name | Student Number |
 |-----------|-----------|
 |Ronan Singpurwala | C20391216 |
-|Keiran Retardo Silada | C20483514 |
+|Kieran Silada | C20483514 |
 |Aman Song | C20325896 |
 |Eoin O'Toole Carrick | C20310571 |
 
 # Description Of The Assignment
-In this assignment we have 4 visualisations using java processing. Each section was made by a different person in the group. Our visualisations respond to the amplitude of the music and frequency by changing colours, sizes of shapes and so on. To extract audio from an mp3 file, we used the audio minum library. 
+In this assignment we have 4 visualisations using java processing. Each section was made by a different person in the group. Our visualisations respond to the amplitude of the music and frequency by changing colours, sizes of shapes and so on. To extract audio from an mp3 file, we used the audio minim library. 
 
 # Instructions
 - Run the main.java file in the ie\tudublin folder.
@@ -17,7 +17,7 @@ In this assignment we have 4 visualisations using java processing. Each section 
 - Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
 
 # How It Works
-Each visualisation has its own class and they are all in the same package. Enemy.java is the driver file for this project. We created 4 objects for the visualisation. We used inheritance to use methods like "calculateAverageAmplitude" from the Visual class. Using the minum we loaded in the Enemy.mp3 which is done in the setup method.
+Each visualisation has its own class and they are all in the same package. Enemy.java is the driver file for this project. We created 4 objects for the visualisation. We used inheritance to use methods like "calculateAverageAmplitude" from the Visual class. Using the minim we loaded in the Enemy.mp3 which is done in the setup method.
 
 ```java
 Eoin Eoin = new Eoin(1920);
@@ -66,11 +66,11 @@ We are all proud of the amount of effort and research we put into this assignmen
 In the Ronan class, we were able to have particles in the background along with rotating 3d objects which also changes colour. We are really proud of because it goes really well with the music we chose.
 
 # Images From Visualiser
-### Visualtisation 1
+### Visualisation 1
 ![An image](images/Image1.png)
 
-### Visualtisation 2
+### Visualisation 2
 ![Aman's section](images/Aman.jpg)
 
-### Visualtisation 3
+### Visualisation 3
 ![image](images/Ronan.jpg)
