@@ -19,7 +19,7 @@ In this assignment we have 4 visualisations using java processing. Each section 
 - **Space bar** is to pause/unpause audio.
 - You can switch through the visualisations using the **1, 2, 3 and 4 keys**.
 - Pressing **"r"** will restart the song.
-- Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
+- Note that visualisations switch automatically at certain parts of the song to suit that particular visualisation best.
 
 # How It Works
 Each visualisation has its own class and they are all in the same package. Enemy.java is the driver file for this project. We created 4 objects for the visualisation. We used inheritance to use methods like "calculateAverageAmplitude" from the Visual class. Using the minim we loaded in the Enemy.mp3 which is done in the setup method.
