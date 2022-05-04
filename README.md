@@ -57,7 +57,7 @@ switch(mode)
 ```
 ### Section 1 Eoin 
 My visualisation uses circles and rectangles as a border to almost simulate 3D wave based on amplitude. My class uses a lerped buffer to store amplitude of the audio in order to make the visuals of the rectangles to change colour and size depending on the amplitude of the song at that moment in time. The size and colours of the circles also dynamically change with the song to create an almost hypnotic effect.
-![Eoin image](images/eoin.png)
+![Eoin image](images/Eoin.png)
 
 ### Section 2 Kieran
 My visualisation is a group of 3D ring visualisers that spin and rotate around a circle in the middle almost like the planet Saturn. Random spheres also rotate around the middle which blip in and out depending on the amplitude of the song. My class also uses a lerped buffer in order to map the visualiser. The ring is drawn along the z and x-axis using sin and cos functions with its height being dictated depending on the value in the lerped buffer. The rotation of the rings is based on the amplitude of the song and some custom values with the colors being mapped as the ring is drawn in a for loop. The circle becomes bigger with the amplitude along with the color changing with it. 
