@@ -73,7 +73,7 @@ My visualisation comprises of an eye shape made using begin shape and math stuff
 
 ### Section 4 Ronan
 My visualisation comprises of a rotating prism in the middle of the screen surrounded by a cube rotating the opposite direction and a border. There are also 4 smaller prisms rotating along with the bigger prism using proccesing's translate method. I used the getSmoothedAmplitude method to get the amplitude and use it as the bases of my sound reponsive visuals. The shapes and borders change different colours depending the amplitude. I used the HSB colour mode and  the map function given by the PApplet library to make my shapes respond to the amplitude. I also changed the size and rotation speed of each shape. I used 3 different colours to make my visuals look more appealing. Finally I added a particles with varying sizes in the backgound, the higher the amplitude the more particles there are.
-![Ronan's section](images/ronan.jpg)
+![Ronan's section](images/ronan.png)
 
 # What Are We Most Proud Of In The Assignment
 We worked hard as a group and in the end we produced a great project which we are very proud of. We wanted to display our knowlegde we learnt in this module and we believe this project demonstrates this. We are content with our use of inheritance, polymorphism, the PApplet library, objects and programming concepts.
