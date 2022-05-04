@@ -73,14 +73,3 @@ My visualisation comprises of a rotating prism in the middle of the screen surro
 
 # What Are We Most Proud Of In The Assignment
 In our opinion, we are most proud of our 5th visualisation near the end of our song. It is the amalgamation of all our hard work and research into this project. Combining aspects of each section and having it work harmoniously is proof of how well our visuals go together. Each combined aspect complement with Eoin's colorful circles, Kieran's complex 3D ring visualiser, Aman's fluttering eye shape Sharingan and Ronan's reactive border and prisms
-
-
-# Images From Visualiser
-### Visualisation 1
-![An image](images/Image1.png)
-
-### Visualisation 2
-![Aman's section](images/Aman.jpg)
-
-### Visualisation 3
-![image](images/Ronan.jpg)
