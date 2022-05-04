@@ -81,7 +81,7 @@ My visualisation comprises of a rotating prism in the middle of the screen surro
 ![Ronan's visual](images/ronan.png)
 
 # What Are We Most Proud Of In The Assignment
-We worked hard as a group and in the end we produced a great project which we are very proud of. We wanted to display our knowlegde we learnt in this module and we believe this project demonstrates this. We are content with our use of inheritance, polymorphism, the PApplet library, objects and programming concepts.
+We worked hard as a group and in the end we produced a great project which we are very proud of. We wanted to display our knowlegde we learnt in this module and we believe this project demonstrates this. We are content with our use of inheritance, polymorphism, the PApplet library, objects and other programming concepts.
 
 In our opinion, we are most proud of our 5th visualisation near the end of our song. It is the amalgamation of all our hard work and research into this project. Combining aspects of each section and having it work harmoniously is proof of how well our visuals go together. Each combined aspect complement with Eoin's colorful circles, Kieran's complex 3D ring visualiser, Aman's fluttering eye shape Sharingan and Ronan's reactive border and prisms
 
