@@ -61,9 +61,8 @@ switch(mode)
 
 
 # What Are We Most Proud Of In The Assignment
-We are all proud of the amount of effort and research we put into this assignment. We believe our visuals go well together with our song choice so when the beat drops it suits the visualiser perfectly and that overall makes watching it an overall better experience.
+In our opinion, we are most proud of our 5th visualisation near the end of our song. It is the amalgamation of all our hard work and research into this project. Combining aspects of each section and having it work harmoniously is proof of how well our visuals go together. Each combined aspect complement with Eoin's colorful circles, Kieran's complex 3D ring visualiser, Aman's fluttering eye shape Sharingan and Ronan's reactive border and prisms
 
-In the Ronan class, we were able to have particles in the background along with rotating 3d objects which also changes colour. We are really proud of because it goes really well with the music we chose.
 
 # Images From Visualiser
 ### Visualisation 1
