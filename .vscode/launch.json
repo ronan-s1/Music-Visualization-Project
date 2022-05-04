@@ -12,7 +12,7 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
-            "mainClass": "C20391216.Main",
+            "mainClass": "ie.tudublin.Main",
             "projectName": "java"
         },
         {
