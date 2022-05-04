@@ -9,6 +9,7 @@
 |Eoin O'Toole Carrick | C20310571 |
 
 # Video Of Our Visualisations
+https://www.youtube.com/watch?v=xAuwouEEJss
 
 # Description Of The Assignment
 In this assignment we have 4 visualisations using java processing. Each section was made by a different person in the group. Our visualisations respond to the amplitude of the music and frequency by changing colours, sizes of shapes and so on. To extract audio from an mp3 file, we used the audio minim library. 
