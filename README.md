@@ -15,9 +15,10 @@ https://www.youtube.com/watch?v=xAuwouEEJss
 In this assignment we have 4 visualisations using java processing. Each section was made by a different person in the group. Our visualisations respond to the amplitude of the music and frequency by changing colours, sizes of shapes and so on. To extract audio from an mp3 file, we used the audio minim library. 
 
 # Instructions
-- Run the main.java file in the ie\tudublin folder.
-- Space bar is to pause/unpause audio.
-- You can switch through the visualisations using the 1, 2, 3 and 4 keys.
+- Run the main.java file in the ie\tudublin package.
+- **Space bar** is to pause/unpause audio.
+- You can switch through the visualisations using the **1, 2, 3 and 4 keys**.
+- Pressing **"r"** will restart the song.
 - Note that visualisations switch automatically at certain parts of the song which suits that particular visualisation best.
 
 # How It Works
